@@ -161,11 +161,13 @@
         <div id="page-content" class="doc-formatting">
           <h1 id="expression-in-text">Expression in text</h1>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>You can bind JavaScript expression in html-text, you can use 3 types of quotes: <code>'', "", ``</code>.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     {name}
     {getValue(&#39;title&#39;)}
     {a} + {b} = {a + b}
@@ -180,11 +182,13 @@
 
 <h2 id="reference">Reference</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>You can get reference to element/component using <code>#ref</code> and save it to a variable.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="kd">let</span> <span class="nx">ref</span><span class="p">;</span>
     <span class="kd">let</span> <span class="nx">component</span><span class="p">;</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -197,11 +201,13 @@
 
 <h2 id="1-way-binding">1-way binding</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>For binding to attributes and properties you can write <code>attribute={value}</code>, if attribute and variable names the same you can use shortcut <code>{attribute}</code>, for binding you can use JavaScript expression.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{value}&quot;</span> <span class="p">/&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{value}&quot;</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">value</span><span class="o">=</span><span class="s">{value}</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="err">{</span><span class="na">value</span><span class="err">}</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">button</span> <span class="na">disabled</span><span class="o">=</span><span class="s">{!clickable}</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -209,11 +215,13 @@
 
 </div>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>Also you can <em>spread</em> an object to attributes.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="kd">let</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span>
         <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span>
         <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Some title&#39;</span>
@@ -227,11 +235,13 @@
 
 <h2 id="2-way-binding">2-way binding</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>For 2-way binding you can use <code>bind:value={value}</code> or shortcut <code>:value={value}</code>, when property name the same as variable name you can omit it, e.g. <code>:value</code></p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
     <span class="kd">let</span> <span class="nx">checked</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -243,11 +253,13 @@
 
 <h2 id="class-and-style">Class and Style</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>To set class and style you can use <code>class:className={condition}</code>, <code>style:styleName={value}</code>.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class:blue</span><span class="o">=</span><span class="s">{value}</span> <span class="na">class:red</span><span class="o">=</span><span class="s">{!value}</span><span class="p">&gt;</span>by class name<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class:blue</span><span class="o">=</span><span class="s">{value}</span> <span class="na">class:red</span><span class="o">=</span><span class="s">{!value}</span><span class="p">&gt;</span>by class name<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;{value?&#39;red&#39;:&#39;blue&#39;}&quot;</span><span class="p">&gt;</span>attribute class<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">b</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: {value?&#39;green&#39;:&#39;red&#39;};&quot;</span><span class="p">&gt;</span>style as string<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">b</span> <span class="na">style:color</span><span class="o">=</span><span class="s">{value}</span><span class="p">&gt;</span>Style as prop<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
@@ -262,13 +274,15 @@
 
 <h2 id="actions">Actions</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>You can run some JavaScript code on element, <code>use:action={param}</code> or shortcut <code>*action={param}</code>, without arguments it looks like <code>*action</code>.</p>
 
 <p>Also you can run some JavaScript code where <code>$element</code> is available - <code>*{$element.focus()}</code>.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="kd">function</span> <span class="nx">draw</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
         <span class="p">...</span>
     <span class="p">}</span>
@@ -279,11 +293,13 @@
 
 </div>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>If you need more control you can pass arguments and subscribe for updates and destroy event.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="kd">function</span> <span class="nx">draw</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
         <span class="p">...</span>
         <span class="k">return</span> <span class="p">{</span>
@@ -299,13 +315,15 @@
 
 <h2 id="events">Events</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>To listen events you can use <code>on:eventName={expression}</code> or shortcut <code>@eventName={expression}</code>.</p>
 
 <p>For expression you can use function name <code>@click={handler}</code> or <code>@click:handler</code>, function declaration <code>@click={(e) =&gt; handler(e)}</code> or js-expression <code>@click={handler($event)}</code>.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="kr">const</span> <span class="nx">handler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{};</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click:handler</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -316,20 +334,24 @@
 
 </div>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>Also you can use modificators for elements: <code>enter</code>, <code>escape</code>, <code>preventDefault</code>.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="err">@</span><span class="na">keyup</span><span class="err">|</span><span class="na">enter:handler</span> <span class="p">/&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="err">@</span><span class="na">keyup</span><span class="err">|</span><span class="na">enter:handler</span> <span class="p">/&gt;</span>
 </code></pre></div>
 
 </div>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>Also you can forward events to a parent component, <code>@eventName</code> to forward one type of event, <code>@@</code> to forward all events from current element, the same works for components.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="err">@@</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">Component</span> <span class="err">@</span><span class="na">click</span> <span class="p">/&gt;</span>
 </code></pre></div>
@@ -340,11 +362,13 @@
 
 <h2 id="if-else">#if-else</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>Block of template can be rendered by condition.</p>
 
-</div><div class="highlight"><pre><span></span><code>{#if condition}
+</div>
+
+<div class="highlight"><pre><span></span><code>{#if condition}
     One content
 {:else}
     Another content
@@ -355,11 +379,13 @@
 
 <h2 id="each">#each</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>Iterating over list.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
     {#each items as item}
         <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{item.name}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
     {/each}
@@ -436,20 +462,13 @@ Also you can call it recursively.</p>
 
 <h2 id="await">#await</h2>
 
-<div class="highlight"><pre><span></span><code>{#await expression}...{:then name}...{:catch name}...{/await}
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>{#await expression}...{:then name}...{/await}
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>{#await expression then name}...{/await}
-</code></pre></div>
-
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>You can await a promise to display placeholder etc.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
 {#await promise}
     Loading...
 {:then value}
@@ -462,13 +481,26 @@ Also you can call it recursively.</p>
 
 </div>
 
+<p>Possible options:</p>
+
+<div class="highlight"><pre><span></span><code>{#await expression}...{:then name}...{:catch name}...{/await}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{#await expression}...{:then name}...{/await}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{#await expression then name}...{/await}
+</code></pre></div>
+
 <h2 id="html">@html</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>To render some HTML, you can use <code>{@html expression}</code>.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     {@html post.content}
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -479,11 +511,13 @@ Also you can call it recursively.</p>
 
 <h2 id="structure">Structure</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>A component can have script block, style block and rest content becomes a template</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="p">...</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
@@ -496,11 +530,13 @@ Also you can call it recursively.</p>
 
 </div>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>You can import a component <code>import Component from './Component.html'</code>, and use it in template as <code>&lt;Component /&gt;</code>, a component should start with capital letter.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="kr">import</span> <span class="nx">Component</span> <span class="nx">from</span> <span class="s1">&#39;./Component.html&#39;</span><span class="p">;</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
@@ -511,24 +547,28 @@ Also you can call it recursively.</p>
 
 <h2 id="properties-and-attributes">Properties and attributes</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>You can pass some arguments into a component, it's a 1-way binding.</p>
 
 <p>Also you can spread an object to pass all values as arguments.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Component</span> <span class="na">value</span><span class="o">=</span><span class="s">{expression}</span> <span class="err">{</span><span class="na">name</span><span class="err">}</span> <span class="err">{...</span><span class="na">obj</span><span class="err">}</span> <span class="p">/&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Component</span> <span class="na">value</span><span class="o">=</span><span class="s">{expression}</span> <span class="err">{</span><span class="na">name</span><span class="err">}</span> <span class="err">{...</span><span class="na">obj</span><span class="err">}</span> <span class="p">/&gt;</span>
 </code></pre></div>
 
 </div>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>You can use keyword <code>export</code> to mark a variable as property, so it will receive a value from parent component and will be updated on changes.</p>
 
 <p>A parent can pass more arguments than number of props in a component, so all arguments will be available in <code>$props</code>, and all arguments which are not property are in <code>$attributes</code>.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="kr">export</span> <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">;</span>
 
     <span class="nx">$props</span>
@@ -543,31 +583,37 @@ Also you can call it recursively.</p>
 
 <h2 id="2-way-binding-2">2-way binding</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>Syntax for 2-way binding is the same as for elements.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Component</span> <span class="na">:value</span><span class="o">=</span><span class="s">{variable}</span> <span class="p">/&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Component</span> <span class="na">:value</span><span class="o">=</span><span class="s">{variable}</span> <span class="p">/&gt;</span>
 </code></pre></div>
 
 </div>
 
 <h2 id="events-2">Events</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>It's possible to listen an event, forward an event and forward all events. Syntax for events is the same as for elements.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Component</span> <span class="err">@</span><span class="na">click:handler</span> <span class="p">/&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Component</span> <span class="err">@</span><span class="na">click:handler</span> <span class="p">/&gt;</span>
 </code></pre></div>
 
 </div>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>Also you can emit an custom event, for this you can use a built function <code>$emit(eventName, details)</code>.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;myevent&#39;</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">);</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -576,11 +622,13 @@ Also you can call it recursively.</p>
 
 <h2 id="slots">Slots</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>You can pass slots to a child component. To pass a default slot:</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Child</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Child</span><span class="p">&gt;</span>
   Some content
 <span class="p">&lt;/</span><span class="nt">Child</span><span class="p">&gt;</span>
 
@@ -590,11 +638,13 @@ Also you can call it recursively.</p>
 
 </div>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>To pass named slots:</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Child</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Child</span><span class="p">&gt;</span>
     {#slot:title}
         Some title
     {/slot}
@@ -616,11 +666,13 @@ Also you can call it recursively.</p>
 
 </div>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>A child component can pass a property to parent slot:</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Child</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Child</span><span class="p">&gt;</span>
     {#slot prop}
         Some content {prop.value} {parentVar}
     {/slot}
@@ -637,11 +689,13 @@ Also you can call it recursively.</p>
 
 <h2 id="other">Other</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>If you have an instance of component, you can read/write properties directly.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="kr">import</span> <span class="nx">Component</span> <span class="nx">from</span> <span class="s1">&#39;./Component.html&#39;</span><span class="p">;</span>
     <span class="kd">let</span> <span class="nx">comp</span><span class="p">;</span>
 
@@ -654,11 +708,13 @@ Also you can call it recursively.</p>
 
 </div>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>If you need to perform some code after mounting or during destroying a component, you can use declare functions <code>onMount</code>, <code>onDestroy</code>, or use a built function <code>$onDestroy(fn)</code>.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 
     <span class="nx">called_at_start</span><span class="p">();</span>
 
@@ -682,13 +738,15 @@ Also you can call it recursively.</p>
 
 <h2 id="scoped-css">Scoped CSS</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>Malina.js makes all styles are scoped for a component, it appends a prefix class to styles and elements from template based on selector, so only required elements are marked.</p>
 
 <p>Using keyword <code>:global()</code> you make certain style as global.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
     <span class="nt">span</span> <span class="p">{</span>
         <span class="c">/* all &lt;span&gt; elements, only from</span>
 <span class="c">        current component will be affected */</span>
@@ -708,7 +766,7 @@ Also you can call it recursively.</p>
 
 <h2 id="watch-expression-reactivity">Watch expression, reactivity</h2>
 
-<p><div class="columns2"><div></p>
+<div class="columns2"><div>
 
 <p>Using syntax <code>$:</code> you can observe changes.</p>
 
@@ -718,7 +776,9 @@ Also you can call it recursively.</p>
 
 <p>Also you can observe a few expressions: <code>$: exp1, exp2, exp3, (value1, value2, value3) =&gt; {...};</code>.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
     <span class="nx">$</span><span class="o">:</span> <span class="nx">header</span> <span class="o">=</span> <span class="nx">name</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
     <span class="nx">$</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
