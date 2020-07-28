@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator">
+    <meta charset="utf-8">
+
+    <title>Malina.js | API </title>
+    <meta name="description" content>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="./doc.css">
+    <link rel="stylesheet" href="./pygments.css">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+
+  </head>
+<body>
+
+  <div class="doc-navigation">
+      <nav class="doc-navbar">
+        <a href="/docs/" class="doc-navbar__logo">
+        <img src="./favicon-32x32.png" class="doc-navbar__logo__img">
+        <span class="doc-navbar__logo__text">Malina.js</span>
+        </a>
+      </nav>
+      <nav class="doc-sidebar">
+        <div class="doc-sidebar-content">
+            <ul class="doc-sidebar-list">
+              <li class="doc-sidebar-list__item doc-sidebar-list__item--link">             <a href="#expression-in-text"><span><b>Expression in text</b></span></a></li>
+<li class="doc-sidebar-list__item doc-sidebar-list__item--link">             <a href="#bindings"><span><b>Bindings</b></span></a><ul class="doc-sidebar-list__toc-list">
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#reference" data-scroll="true">
+                        <span>Reference</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#1-way-binding" data-scroll="true">
+                        <span>1-way binding</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#2-way-binding" data-scroll="true">
+                        <span>2-way binding</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#class-and-style" data-scroll="true">
+                        <span>Class and Style</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#actions" data-scroll="true">
+                        <span>Actions</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#events" data-scroll="true">
+                        <span>Events</span>
+                      </a>
+                    </li>
+                </ul></li>
+<li class="doc-sidebar-list__item doc-sidebar-list__item--link">             <a href="#control-blocks"><span><b>Control blocks</b></span></a><ul class="doc-sidebar-list__toc-list">
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#if-else" data-scroll="true">
+                        <span>#if-else</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#each" data-scroll="true">
+                        <span>#each</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#fragment" data-scroll="true">
+                        <span>#fragment</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#await" data-scroll="true">
+                        <span>#await</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#html" data-scroll="true">
+                        <span>@html</span>
+                      </a>
+                    </li>
+                </ul></li>
+<li class="doc-sidebar-list__item doc-sidebar-list__item--link">             <a href="#components"><span><b>Components</b></span></a><ul class="doc-sidebar-list__toc-list">
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#structure" data-scroll="true">
+                        <span>Structure</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#properties-and-attributes" data-scroll="true">
+                        <span>Properties and attributes</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#2-way-binding-2" data-scroll="true">
+                        <span>2-way binding</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#events-2" data-scroll="true">
+                        <span>Events</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#slots" data-scroll="true">
+                        <span>Slots</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#other" data-scroll="true">
+                        <span>Other</span>
+                      </a>
+                    </li>
+                </ul></li>
+<li class="doc-sidebar-list__item doc-sidebar-list__item--link">             <a href="#other-2"><span><b>Other</b></span></a><ul class="doc-sidebar-list__toc-list">
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#scoped-css" data-scroll="true">
+                        <span>Scoped CSS</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#watch-expression-reactivity" data-scroll="true">
+                        <span>Watch expression, reactivity</span>
+                      </a>
+                    </li>
+                </ul></li>
+            </ul>
+        </div>
+      </nav>
+  </div>
+
+  <div class="doc-content">
+    <div class="dc-page">
+      <div class="dc-card">
+        <div id="page-content" class="doc-formatting">
+          <h1 id="expression-in-text">Expression in text</h1>
+
+<div class="columns2"><div>
+
+<p>You can bind JavaScript expression in html-text, you can use 3 types of quotes: <code>'', "", ``</code>.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    {name}
+    {getValue(&#39;title&#39;)}
+    {a} + {b} = {a + b}
+    {&#39;text with &quot;quotes&quot;&#39; + `123`}
+    {`js template ${variable}`}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h1 id="bindings">Bindings</h1>
+
+<h2 id="reference">Reference</h2>
+
+<div class="columns2"><div>
+
+<p>You can get reference to element/component using <code>#ref</code> and save it to a variable.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">let</span> <span class="nx">ref</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">component</span><span class="p">;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">input</span> <span class="err">#</span><span class="na">ref</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">Component</span> <span class="err">#</span><span class="na">component</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="1-way-binding">1-way binding</h2>
+
+<div class="columns2"><div>
+
+<p>For binding to attributes and properties you can write <code>attribute={value}</code>, if attribute and variable names the same you can use shortcut <code>{attribute}</code>, for binding you can use JavaScript expression.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{value}&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">value</span><span class="o">=</span><span class="s">{value}</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="err">{</span><span class="na">value</span><span class="err">}</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">disabled</span><span class="o">=</span><span class="s">{!clickable}</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p>Also you can <em>spread</em> an object to attributes.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">let</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Some title&#39;</span>
+    <span class="p">};</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">input</span> <span class="err">{...</span><span class="na">props</span><span class="err">}</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="2-way-binding">2-way binding</h2>
+
+<div class="columns2"><div>
+
+<p>For 2-way binding you can use <code>bind:value={value}</code> or shortcut <code>:value={value}</code>, when property name the same as variable name you can omit it, e.g. <code>:value</code></p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">checked</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">:value</span><span class="o">=</span><span class="s">{name}</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">:checked</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="class-and-style">Class and Style</h2>
+
+<div class="columns2"><div>
+
+<p>To set class and style you can use <code>class:className={condition}</code>, <code>style:styleName={value}</code>.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class:blue</span><span class="o">=</span><span class="s">{value}</span> <span class="na">class:red</span><span class="o">=</span><span class="s">{!value}</span><span class="p">&gt;</span>by class name<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;{value?&#39;red&#39;:&#39;blue&#39;}&quot;</span><span class="p">&gt;</span>attribute class<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">b</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: {value?&#39;green&#39;:&#39;red&#39;};&quot;</span><span class="p">&gt;</span>style as string<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">b</span> <span class="na">style:color</span><span class="o">=</span><span class="s">{value}</span><span class="p">&gt;</span>Style as prop<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="p">.</span><span class="nc">blue</span> <span class="p">{}</span><span class="o">;</span>
+    <span class="p">.</span><span class="nc">red</span> <span class="p">{}</span><span class="o">;</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="actions">Actions</h2>
+
+<div class="columns2"><div>
+
+<p>You can run some JavaScript code on element, <code>use:action={param}</code> or shortcut <code>*action={param}</code>, without arguments it looks like <code>*action</code>.</p>
+
+<p>Also you can run some JavaScript code where <code>$element</code> is available - <code>*{$element.focus()}</code>.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">function</span> <span class="nx">draw</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="err">*</span><span class="na">draw</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="err">*{$</span><span class="na">element</span><span class="err">.</span><span class="na">focus</span><span class="err">()}</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p>If you need more control you can pass arguments and subscribe for updates and destroy event.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">function</span> <span class="nx">draw</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">...</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">update</span><span class="o">:</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{},</span>
+            <span class="nx">destroy</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="err">*</span><span class="na">draw</span><span class="o">=</span><span class="s">{a,</span> <span class="na">b</span><span class="err">}</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="events">Events</h2>
+
+<div class="columns2"><div>
+
+<p>To listen events you can use <code>on:eventName={expression}</code> or shortcut <code>@eventName={expression}</code>.</p>
+
+<p>For expression you can use function name <code>@click={handler}</code> or <code>@click:handler</code>, function declaration <code>@click={(e) =&gt; handler(e)}</code> or js-expression <code>@click={handler($event)}</code>.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kr">const</span> <span class="nx">handler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{};</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click:handler</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">{handler}</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">{(e)</span> <span class="err">=</span><span class="p">&gt;</span> handler(e)}&gt;Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">{handler($event,</span> <span class="err">$</span><span class="na">element</span><span class="err">)}</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p>Also you can use modificators for elements: <code>enter</code>, <code>escape</code>, <code>preventDefault</code>.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="err">@</span><span class="na">keyup</span><span class="err">|</span><span class="na">enter:handler</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p>Also you can forward events to a parent component, <code>@eventName</code> to forward one type of event, <code>@@</code> to forward all events from current element, the same works for components.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="err">@@</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">Component</span> <span class="err">@</span><span class="na">click</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h1 id="control-blocks">Control blocks</h1>
+
+<h2 id="if-else">#if-else</h2>
+
+<div class="columns2"><div>
+
+<p>Block of template can be rendered by condition.</p>
+
+</div><div class="highlight"><pre><span></span><code>{#if condition}
+    One content
+{:else}
+    Another content
+{/if}
+</code></pre></div>
+
+</div><div class="columns2"><div>
+
+<h2 id="each">#each</h2>
+
+</div><div class="highlight"><pre><span></span><code>{#each items as item}...{/each}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{#each items as item, index}...{/each}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{#each items as item, index (item.id)}...{/each}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{#each items as item, index (index)}...{/each}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{#each number as value}...{/each}
+</code></pre></div>
+
+</div><div class="columns2"><div>
+
+<p>Iterating over list.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    {#each items as item}
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{item.name}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    {/each}
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div><div class="columns2"><div>
+
+<h2 id="fragment">#fragment</h2>
+
+<p>You can declare some fragment to reuse it a few times other places. Also it can be declared anywhere, e.g. inside of the <code>#each</code>, so it will have all scoped variables.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    {#fragment:button text}
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm-6 smallpad&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn&quot;</span><span class="p">&gt;</span>{text}<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    {/fragment}
+
+    <span class="p">&lt;</span><span class="nt">fragment:button</span> <span class="na">text</span><span class="o">=</span><span class="s">&#39;Left&#39;</span> <span class="err">@</span><span class="na">click:left</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">fragment:button</span> <span class="na">text</span><span class="o">=</span><span class="s">&#39;Right&#39;</span> <span class="err">@</span><span class="na">click:right</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p><br/>
+Also you can call it recursively.</p>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">let</span> <span class="nx">tree</span> <span class="o">=</span> <span class="p">[{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;OS&#39;</span><span class="p">,</span>
+        <span class="nx">children</span><span class="o">:</span> <span class="p">[{</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Linux&#39;</span><span class="p">,</span>
+            <span class="nx">children</span><span class="o">:</span> <span class="p">[{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Ubuntu&#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Debian&#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;RedHat&#39;</span><span class="p">}]</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;MacOS X&#39;</span>
+        <span class="p">}]</span>
+    <span class="p">}];</span>
+
+    <span class="kr">const</span> <span class="nx">click</span> <span class="o">=</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">)};</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">fragment:draw</span> <span class="na">list</span><span class="o">=</span><span class="s">{tree}</span><span class="p">&gt;</span>
+
+{#fragment:draw list}
+    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+        {#each list as it}
+        <span class="p">&lt;</span><span class="nt">li</span> <span class="err">@</span><span class="na">click</span><span class="err">|</span><span class="na">stopPropagation</span><span class="o">=</span><span class="s">{click(it.name)}</span><span class="p">&gt;</span>
+            {it.name}
+            {#if it.children}
+                <span class="p">&lt;</span><span class="nt">fragment:draw</span> <span class="na">list</span><span class="o">=</span><span class="s">{it.children}</span> <span class="p">/&gt;</span>
+            {/if}
+        <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+        {/each}
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+{/fragment}
+</code></pre></div>
+
+<h2 id="await">#await</h2>
+
+<div class="highlight"><pre><span></span><code>{#await expression}...{:then name}...{:catch name}...{/await}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{#await expression}...{:then name}...{/await}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{#await expression then name}...{/await}
+</code></pre></div>
+
+</div><div class="columns2"><div>
+
+<p>You can await a promise to display placeholder etc.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+{#await promise}
+    Loading...
+{:then value}
+    Data: {value}
+{:catch error}
+    Loading error: {error}
+{/await}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="html">@html</h2>
+
+<div class="columns2"><div>
+
+<p>To render some HTML, you can use <code>{@html expression}</code>.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    {@html post.content}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h1 id="components">Components</h1>
+
+<h2 id="structure">Structure</h2>
+
+<div class="columns2"><div>
+
+<p>A component can have script block, style block and rest content becomes a template</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">...</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+... content ...
+
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="o">...</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p>You can import a component <code>import Component from './Component.html'</code>, and use it in template as <code>&lt;Component /&gt;</code>, a component should start with capital letter.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kr">import</span> <span class="nx">Component</span> <span class="nx">from</span> <span class="s1">&#39;./Component.html&#39;</span><span class="p">;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">Component</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="properties-and-attributes">Properties and attributes</h2>
+
+<div class="columns2"><div>
+
+<p>You can pass some arguments into a component, it's a 1-way binding.</p>
+
+<p>Also you can spread an object to pass all values as arguments.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Component</span> <span class="na">value</span><span class="o">=</span><span class="s">{expression}</span> <span class="err">{</span><span class="na">name</span><span class="err">}</span> <span class="err">{...</span><span class="na">obj</span><span class="err">}</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p>You can use keyword <code>export</code> to mark a variable as property, so it will receive a value from parent component and will be updated on changes.</p>
+
+<p>A parent can pass more arguments than number of props in a component, so all arguments will be available in <code>$props</code>, and all arguments which are not property are in <code>$attributes</code>.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kr">export</span> <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">;</span>
+
+    <span class="nx">$props</span>
+    <span class="nx">$attributes</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">input</span> <span class="err">{...$</span><span class="na">props</span><span class="err">}</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="err">{...$</span><span class="na">attributes</span><span class="err">}</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="2-way-binding-2">2-way binding</h2>
+
+<div class="columns2"><div>
+
+<p>Syntax for 2-way binding is the same as for elements.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Component</span> <span class="na">:value</span><span class="o">=</span><span class="s">{variable}</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="events-2">Events</h2>
+
+<div class="columns2"><div>
+
+<p>It's possible to listen an event, forward an event and forward all events. Syntax for events is the same as for elements.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Component</span> <span class="err">@</span><span class="na">click:handler</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p>Also you can emit an custom event, for this you can use a built function <code>$emit(eventName, details)</code>.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;myevent&#39;</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="slots">Slots</h2>
+
+<div class="columns2"><div>
+
+<p>You can pass slots to a child component. To pass a default slot:</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Child</span><span class="p">&gt;</span>
+  Some content
+<span class="p">&lt;/</span><span class="nt">Child</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- Child.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">slot</span><span class="p">&gt;</span>No content<span class="p">&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p>To pass named slots:</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Child</span><span class="p">&gt;</span>
+    {#slot:title}
+        Some title
+    {/slot}
+
+    Some content
+
+    {#slot:footer}
+        Some footer
+    {/slot}
+<span class="p">&lt;/</span><span class="nt">Child</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- Child.html --&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">slot</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">slot</span><span class="p">&gt;</span>No content<span class="p">&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">slot:title</span><span class="p">&gt;</span>No title<span class="p">&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">slot:footer</span><span class="p">&gt;</span>No title<span class="p">&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span> or <span class="p">&lt;</span><span class="nt">slot:footer</span><span class="p">&gt;</span>No title<span class="p">&lt;/</span><span class="nt">slot:footer</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p>A child component can pass a property to parent slot:</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Child</span><span class="p">&gt;</span>
+    {#slot prop}
+        Some content {prop.value} {parentVar}
+    {/slot}
+<span class="p">&lt;/</span><span class="nt">Child</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- Child.html --&gt;</span>
+
+{#each items as item}
+    <span class="p">&lt;</span><span class="nt">slot</span> <span class="na">prop</span><span class="o">=</span><span class="s">{item}</span><span class="p">&gt;</span>No content {childVar}<span class="p">&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+{/each}
+</code></pre></div>
+
+</div>
+
+<h2 id="other">Other</h2>
+
+<div class="columns2"><div>
+
+<p>If you have an instance of component, you can read/write properties directly.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kr">import</span> <span class="nx">Component</span> <span class="nx">from</span> <span class="s1">&#39;./Component.html&#39;</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">comp</span><span class="p">;</span>
+
+    <span class="kd">function</span> <span class="nx">increment</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">comp</span><span class="p">.</span><span class="nx">value</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">Component</span> <span class="err">#</span><span class="na">comp</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p>If you need to perform some code after mounting or during destroying a component, you can use declare functions <code>onMount</code>, <code>onDestroy</code>, or use a built function <code>$onDestroy(fn)</code>.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+
+    <span class="nx">called_at_start</span><span class="p">();</span>
+
+    <span class="kd">function</span> <span class="nx">onMount</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// called after mounting</span>
+
+        <span class="nx">$onDestroy</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{...});</span>  <span class="c1">// subscribe on destroying</span>
+        <span class="nx">$onDestroy</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{...});</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">onDestroy</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// called during destroying</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">Component</span> <span class="err">#</span><span class="na">comp</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h1 id="other-2">Other</h1>
+
+<h2 id="scoped-css">Scoped CSS</h2>
+
+<div class="columns2"><div>
+
+<p>Malina.js makes all styles are scoped for a component, it appends a prefix class to styles and elements from template based on selector, so only required elements are marked.</p>
+
+<p>Using keyword <code>:global()</code> you make certain style as global.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="nt">span</span> <span class="p">{</span>
+        <span class="c">/* all &lt;span&gt; elements, only from</span>
+<span class="c">        current component will be affected */</span>
+    <span class="p">}</span>
+    <span class="p">:</span><span class="nd">global</span><span class="o">(</span><span class="nt">body</span><span class="o">)</span> <span class="p">{</span>
+        <span class="c">/* effects on &lt;body&gt; */</span>
+    <span class="p">}</span>
+    <span class="nt">div</span> <span class="p">:</span><span class="nd">global</span><span class="o">(</span><span class="nt">span</span><span class="o">)</span> <span class="p">{</span>
+        <span class="c">/* effects on all &lt;span&gt; elements</span>
+<span class="c">        (including child components)</span>
+<span class="c">        inside of &lt;div&gt; from current component */</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="watch-expression-reactivity">Watch expression, reactivity</h2>
+
+<div class="columns2"><div>
+
+<p>Using syntax <code>$:</code> you can observe changes.</p>
+
+<p>Computed value: <code>$: value = a + b</code>, <code>value</code> will be changed when an expression gives another result.</p>
+
+<p>Observe changes in expression; <code>$: name, () =&gt; console.log(name);</code>, a function will be called when <code>name</code> is changde.</p>
+
+<p>Also you can observe a few expressions: <code>$: exp1, exp2, exp3, (value1, value2, value3) =&gt; {...};</code>.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="nx">$</span><span class="o">:</span> <span class="nx">header</span> <span class="o">=</span> <span class="nx">name</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+    <span class="nx">$</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">:value</span><span class="o">=</span><span class="s">{name}</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </body>
+</html>
