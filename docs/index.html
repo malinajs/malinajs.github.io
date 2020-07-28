@@ -161,7 +161,7 @@
         <div id="page-content" class="doc-formatting">
           <h1 id="expression-in-text">Expression in text</h1>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>You can bind JavaScript expression in html-text, you can use 3 types of quotes: <code>'', "", ``</code>.</p>
 
@@ -180,7 +180,7 @@
 
 <h2 id="reference">Reference</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>You can get reference to element/component using <code>#ref</code> and save it to a variable.</p>
 
@@ -197,7 +197,7 @@
 
 <h2 id="1-way-binding">1-way binding</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>For binding to attributes and properties you can write <code>attribute={value}</code>, if attribute and variable names the same you can use shortcut <code>{attribute}</code>, for binding you can use JavaScript expression.</p>
 
@@ -209,7 +209,7 @@
 
 </div>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>Also you can <em>spread</em> an object to attributes.</p>
 
@@ -227,7 +227,7 @@
 
 <h2 id="2-way-binding">2-way binding</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>For 2-way binding you can use <code>bind:value={value}</code> or shortcut <code>:value={value}</code>, when property name the same as variable name you can omit it, e.g. <code>:value</code></p>
 
@@ -243,7 +243,7 @@
 
 <h2 id="class-and-style">Class and Style</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>To set class and style you can use <code>class:className={condition}</code>, <code>style:styleName={value}</code>.</p>
 
@@ -262,7 +262,7 @@
 
 <h2 id="actions">Actions</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>You can run some JavaScript code on element, <code>use:action={param}</code> or shortcut <code>*action={param}</code>, without arguments it looks like <code>*action</code>.</p>
 
@@ -279,7 +279,7 @@
 
 </div>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>If you need more control you can pass arguments and subscribe for updates and destroy event.</p>
 
@@ -299,7 +299,7 @@
 
 <h2 id="events">Events</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>To listen events you can use <code>on:eventName={expression}</code> or shortcut <code>@eventName={expression}</code>.</p>
 
@@ -316,7 +316,7 @@
 
 </div>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>Also you can use modificators for elements: <code>enter</code>, <code>escape</code>, <code>preventDefault</code>.</p>
 
@@ -325,7 +325,7 @@
 
 </div>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>Also you can forward events to a parent component, <code>@eventName</code> to forward one type of event, <code>@@</code> to forward all events from current element, the same works for components.</p>
 
@@ -340,7 +340,7 @@
 
 <h2 id="if-else">#if-else</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>Block of template can be rendered by condition.</p>
 
@@ -351,11 +351,26 @@
 {/if}
 </code></pre></div>
 
-</div><div class="columns2"><div>
+</div>
 
 <h2 id="each">#each</h2>
 
-</div><div class="highlight"><pre><span></span><code>{#each items as item}...{/each}
+<p><div class="columns2"><div></p>
+
+<p>Iterating over list.</p>
+
+</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    {#each items as item}
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{item.name}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    {/each}
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<p>Possible options:</p>
+
+<div class="highlight"><pre><span></span><code>{#each items as item}...{/each}
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>{#each items as item, index}...{/each}
@@ -370,24 +385,11 @@
 <div class="highlight"><pre><span></span><code>{#each number as value}...{/each}
 </code></pre></div>
 
-</div><div class="columns2"><div>
-
-<p>Iterating over list.</p>
-
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-    {#each items as item}
-        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{item.name}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-    {/each}
-<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-</code></pre></div>
-
-</div><div class="columns2"><div>
-
 <h2 id="fragment">#fragment</h2>
 
 <p>You can declare some fragment to reuse it a few times other places. Also it can be declared anywhere, e.g. inside of the <code>#each</code>, so it will have all scoped variables.</p>
 
-</div><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     {#fragment:button text}
         <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm-6 smallpad&quot;</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn&quot;</span><span class="p">&gt;</span>{text}<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -443,7 +445,7 @@ Also you can call it recursively.</p>
 <div class="highlight"><pre><span></span><code>{#await expression then name}...{/await}
 </code></pre></div>
 
-</div><div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>You can await a promise to display placeholder etc.</p>
 
@@ -462,7 +464,7 @@ Also you can call it recursively.</p>
 
 <h2 id="html">@html</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>To render some HTML, you can use <code>{@html expression}</code>.</p>
 
@@ -477,7 +479,7 @@ Also you can call it recursively.</p>
 
 <h2 id="structure">Structure</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>A component can have script block, style block and rest content becomes a template</p>
 
@@ -494,7 +496,7 @@ Also you can call it recursively.</p>
 
 </div>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>You can import a component <code>import Component from './Component.html'</code>, and use it in template as <code>&lt;Component /&gt;</code>, a component should start with capital letter.</p>
 
@@ -509,7 +511,7 @@ Also you can call it recursively.</p>
 
 <h2 id="properties-and-attributes">Properties and attributes</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>You can pass some arguments into a component, it's a 1-way binding.</p>
 
@@ -520,7 +522,7 @@ Also you can call it recursively.</p>
 
 </div>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>You can use keyword <code>export</code> to mark a variable as property, so it will receive a value from parent component and will be updated on changes.</p>
 
@@ -541,7 +543,7 @@ Also you can call it recursively.</p>
 
 <h2 id="2-way-binding-2">2-way binding</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>Syntax for 2-way binding is the same as for elements.</p>
 
@@ -552,7 +554,7 @@ Also you can call it recursively.</p>
 
 <h2 id="events-2">Events</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>It's possible to listen an event, forward an event and forward all events. Syntax for events is the same as for elements.</p>
 
@@ -561,7 +563,7 @@ Also you can call it recursively.</p>
 
 </div>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>Also you can emit an custom event, for this you can use a built function <code>$emit(eventName, details)</code>.</p>
 
@@ -574,7 +576,7 @@ Also you can call it recursively.</p>
 
 <h2 id="slots">Slots</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>You can pass slots to a child component. To pass a default slot:</p>
 
@@ -588,7 +590,7 @@ Also you can call it recursively.</p>
 
 </div>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>To pass named slots:</p>
 
@@ -614,7 +616,7 @@ Also you can call it recursively.</p>
 
 </div>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>A child component can pass a property to parent slot:</p>
 
@@ -635,7 +637,7 @@ Also you can call it recursively.</p>
 
 <h2 id="other">Other</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>If you have an instance of component, you can read/write properties directly.</p>
 
@@ -652,7 +654,7 @@ Also you can call it recursively.</p>
 
 </div>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>If you need to perform some code after mounting or during destroying a component, you can use declare functions <code>onMount</code>, <code>onDestroy</code>, or use a built function <code>$onDestroy(fn)</code>.</p>
 
@@ -680,7 +682,7 @@ Also you can call it recursively.</p>
 
 <h2 id="scoped-css">Scoped CSS</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>Malina.js makes all styles are scoped for a component, it appends a prefix class to styles and elements from template based on selector, so only required elements are marked.</p>
 
@@ -706,7 +708,7 @@ Also you can call it recursively.</p>
 
 <h2 id="watch-expression-reactivity">Watch expression, reactivity</h2>
 
-<div class="columns2"><div>
+<p><div class="columns2"><div></p>
 
 <p>Using syntax <code>$:</code> you can observe changes.</p>
 

@@ -1,7 +1,7 @@
 
 # Expression in text
 
-^^^^
+^^^^block
 You can bind JavaScript expression in html-text, you can use 3 types of quotes: ` '', "", `` `.
 
 ```html
@@ -19,7 +19,7 @@ You can bind JavaScript expression in html-text, you can use 3 types of quotes: 
 
 ## Reference
 
-^^^^
+^^^^block
 You can get reference to element/component using `#ref` and save it to a variable.
 
 ```html
@@ -35,7 +35,7 @@ You can get reference to element/component using `#ref` and save it to a variabl
 
 ## 1-way binding
 
-^^^^
+^^^^block
 For binding to attributes and properties you can write `attribute={value}`, if attribute and variable names the same you can use shortcut `{attribute}`, for binding you can use JavaScript expression.
 
 ```html
@@ -46,7 +46,7 @@ For binding to attributes and properties you can write `attribute={value}`, if a
 ```
 ^^^^
 
-^^^^
+^^^^block
 Also you can *spread* an object to attributes.
 
 ```html
@@ -63,7 +63,7 @@ Also you can *spread* an object to attributes.
 
 ## 2-way binding
 
-^^^^
+^^^^block
 For 2-way binding you can use `bind:value={value}` or shortcut `:value={value}`, when property name the same as variable name you can omit it, e.g. `:value`
 
 ```html
@@ -78,7 +78,7 @@ For 2-way binding you can use `bind:value={value}` or shortcut `:value={value}`,
 
 ## Class and Style
 
-^^^^
+^^^^block
 To set class and style you can use `class:className={condition}`, `style:styleName={value}`.
 
 ```html
@@ -96,7 +96,7 @@ To set class and style you can use `class:className={condition}`, `style:styleNa
 
 ## Actions
 
-^^^^
+^^^^block
 You can run some JavaScript code on element, `use:action={param}` or shortcut `*action={param}`, without arguments it looks like `*action`.
 
 Also you can run some JavaScript code where `$element` is available - `*{$element.focus()}`.
@@ -112,7 +112,7 @@ Also you can run some JavaScript code where `$element` is available - `*{$elemen
 ```
 ^^^^
 
-^^^^
+^^^^block
 If you need more control you can pass arguments and subscribe for updates and destroy event.
 
 ```html
@@ -131,7 +131,7 @@ If you need more control you can pass arguments and subscribe for updates and de
 
 ## Events
 
-^^^^
+^^^^block
 To listen events you can use `on:eventName={expression}` or shortcut `@eventName={expression}`.
 
 For expression you can use function name `@click={handler}` or `@click:handler`, function declaration `@click={(e) => handler(e)}` or js-expression `@click={handler($event)}`.
@@ -147,7 +147,7 @@ For expression you can use function name `@click={handler}` or `@click:handler`,
 ```
 ^^^^
 
-^^^^
+^^^^block
 Also you can use modificators for elements: `enter`, `escape`, `preventDefault`.
 
 ```html
@@ -155,7 +155,7 @@ Also you can use modificators for elements: `enter`, `escape`, `preventDefault`.
 ```
 ^^^^
 
-^^^^
+^^^^block
 Also you can forward events to a parent component, `@eventName` to forward one type of event, `@@` to forward all events from current element, the same works for components.
 
 ```html
@@ -170,7 +170,7 @@ Also you can forward events to a parent component, `@eventName` to forward one t
 
 ## #if-else
 
-^^^^
+^^^^block
 Block of template can be rendered by condition.
 
 ```html
@@ -183,6 +183,20 @@ Block of template can be rendered by condition.
 ^^^^
 
 ## #each
+
+^^^^block
+Iterating over list.
+
+```html
+<ul>
+    {#each items as item}
+        <li>{item.name}</li>
+    {/each}
+</ul>
+```
+^^^^
+
+Possible options:
 
 ```html
 {#each items as item}...{/each}
@@ -204,19 +218,9 @@ Block of template can be rendered by condition.
 {#each number as value}...{/each}
 ```
 
-^^^^
-Iterating over list.
-
-```html
-<ul>
-    {#each items as item}
-        <li>{item.name}</li>
-    {/each}
-</ul>
-```
-^^^^
 
 ## #fragment
+
 
 You can declare some fragment to reuse it a few times other places. Also it can be declared anywhere, e.g. inside of the `#each`, so it will have all scoped variables.
 
@@ -267,6 +271,7 @@ Also you can call it recursively.
 {/fragment}
 ```
 
+
 ## #await
 
 ```html
@@ -281,7 +286,7 @@ Also you can call it recursively.
 {#await expression then name}...{/await}
 ```
 
-^^^^
+^^^^block
 You can await a promise to display placeholder etc.
 
 ```html
@@ -299,7 +304,7 @@ You can await a promise to display placeholder etc.
 
 ## @html
 
-^^^^
+^^^^block
 To render some HTML, you can use `{@html expression}`.
 
 ```html
@@ -314,7 +319,7 @@ To render some HTML, you can use `{@html expression}`.
 
 ## Structure
 
-^^^^
+^^^^block
 A component can have script block, style block and rest content becomes a template
 
 ```html
@@ -330,7 +335,7 @@ A component can have script block, style block and rest content becomes a templa
 ```
 ^^^^
 
-^^^^
+^^^^block
 You can import a component `import Component from './Component.html'`, and use it in template as `<Component />`, a component should start with capital letter.
 
 ```html
@@ -344,7 +349,7 @@ You can import a component `import Component from './Component.html'`, and use i
 
 ## Properties and attributes
 
-^^^^
+^^^^block
 You can pass some arguments into a component, it's a 1-way binding.
 
 Also you can spread an object to pass all values as arguments.
@@ -355,7 +360,7 @@ Also you can spread an object to pass all values as arguments.
 ^^^^
 
 
-^^^^
+^^^^block
 You can use keyword `export` to mark a variable as property, so it will receive a value from parent component and will be updated on changes.
 
 A parent can pass more arguments than number of props in a component, so all arguments will be available in `$props`, and all arguments which are not property are in `$attributes`.
@@ -375,7 +380,7 @@ A parent can pass more arguments than number of props in a component, so all arg
 
 ## 2-way binding
 
-^^^^
+^^^^block
 Syntax for 2-way binding is the same as for elements.
 
 ```html
@@ -385,7 +390,7 @@ Syntax for 2-way binding is the same as for elements.
 
 ## Events
 
-^^^^
+^^^^block
 It's possible to listen an event, forward an event and forward all events. Syntax for events is the same as for elements.
 
 ```html
@@ -393,7 +398,7 @@ It's possible to listen an event, forward an event and forward all events. Synta
 ```
 ^^^^
 
-^^^^
+^^^^block
 Also you can emit an custom event, for this you can use a built function `$emit(eventName, details)`.
 
 ```html
@@ -406,7 +411,7 @@ Also you can emit an custom event, for this you can use a built function `$emit(
 
 ## Slots
 
-^^^^
+^^^^block
 You can pass slots to a child component. To pass a default slot:
 
 ```html
@@ -419,7 +424,7 @@ You can pass slots to a child component. To pass a default slot:
 ```
 ^^^^
 
-^^^^
+^^^^block
 To pass named slots:
 
 ```html
@@ -444,7 +449,7 @@ To pass named slots:
 ```
 ^^^^
 
-^^^^
+^^^^block
 A child component can pass a property to parent slot:
 
 ```html
@@ -465,7 +470,7 @@ A child component can pass a property to parent slot:
 
 ## Other
 
-^^^^
+^^^^block
 If you have an instance of component, you can read/write properties directly.
 
 ```html
@@ -482,7 +487,7 @@ If you have an instance of component, you can read/write properties directly.
 ^^^^
 
 
-^^^^
+^^^^block
 If you need to perform some code after mounting or during destroying a component, you can use declare functions `onMount`, `onDestroy`, or use a built function `$onDestroy(fn)`.
 
 ```html
@@ -506,12 +511,11 @@ If you need to perform some code after mounting or during destroying a component
 ^^^^
 
 
-
 # Other
 
 ## Scoped CSS
 
-^^^^
+^^^^block
 Malina.js makes all styles are scoped for a component, it appends a prefix class to styles and elements from template based on selector, so only required elements are marked.
 
 Using keyword `:global()` you make certain style as global.
@@ -536,7 +540,7 @@ Using keyword `:global()` you make certain style as global.
 
 ## Watch expression, reactivity
 
-^^^^
+^^^^block
 Using syntax `$:` you can observe changes.
 
 Computed value: `$: value = a + b`, `value` will be changed when an expression gives another result.
