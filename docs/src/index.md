@@ -207,6 +207,10 @@ Possible options:
 ```
 
 ```html
+{#each items as {id, name, key1, key2} }...{/each}
+```
+
+```html
 {#each items as item, index (item.id)}...{/each}
 ```
 
@@ -470,6 +474,100 @@ A child component can pass a property to parent slot:
 ```
 
 
+## Dynamic component
+
+---
+Dynamic component let you to attach a component from variable/expression.
+
+```html
+<script>
+    import Music from './Music.xht';
+    import Movie from './Movie.xht';
+    
+    let comp, x;
+
+    function toggle() {
+        comp = comp == Music ? Movie : Music;
+        x ^= 1;
+    }
+</script>
+
+<component:comp />
+<component:{x ? Music : Movie} />
+
+<button @click:toggle>Switch</button>
+```
+
+
+## Passing CSS class
+
+You can pass classes into child components and use them with property `$class` or attach them, [read an article](https://medium.com/@lega911/how-a-popular-feature-declined-by-svelte-went-live-in-malina-js-1a08fdb9dbc4)
+
+---
+**Property $class**: If you pass classes into a component using attribute `class`, then a child component will have these classes with hash in attribute `$class`
+
+
+```html
+<!-- App -->
+<Child class="red italic" />
+
+<!-- Child -->
+<div class={$class}>
+    Child
+</div>
+```
+
+---
+**Named $class**: If you need to pass more than one class property, you can use attribute of `$class`, like `$class.header`
+
+
+```html
+<!-- App -->
+<Child .header="red bold" .body:italic={cond} />
+
+<!-- Child -->
+<div class={$class.header}>
+    Header
+</div>
+
+<div class={$class.body}>
+    Body
+</div>
+```
+
+
+---
+**Adopt a class**: You can adopt a class using syntax `:export(.class-name) {...default style...}`
+
+
+```html
+<!-- App -->
+<Child class="btn" />
+
+<style>
+    .btn {color: red}
+</style>
+
+<!-- Child -->
+<button class="btn">button</button>
+
+<style>
+    .btn {font-style: italic}
+    :export(.btn) {color: blue}
+</style>
+```
+
+---
+Also you can rename passed class, and use class directives
+
+
+```html
+<Child class:btn={cond} />
+<Child .btn="red bold" />
+<Child .btn:purple={cond} />
+```
+
+
 
 ## Other
 
@@ -487,7 +585,6 @@ If you have an instance of component, you can read/write properties directly.
 </script>
 <Component #comp />
 ```
-
 
 
 ---
@@ -563,3 +660,12 @@ Also you can observe a few expressions: `$: exp1, exp2, exp3, (value1, value2, v
 <input type="text" :value={name} />
 ```
 
+
+## Compile options
+
+* warning - <function> to receive warnings
+* inlineTemplate - <true/false> convert new line to \n
+* hideLabel - <true/false> hide comment tags (labels) from DOM
+* compact - <true/false> remove spaces between DOM elements
+* autoSubscribe - <true/false> autosubscribe imported stores
+* cssGenId - <function> generate hash for css classes

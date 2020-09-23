@@ -137,6 +137,18 @@
                     </li>
                 
                     <li class="doc-sidebar-list__toc-item">
+                      <a href="#dynamic-component" data-scroll="true">
+                        <span>Dynamic component</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#passing-css-class" data-scroll="true">
+                        <span>Passing CSS class</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
                       <a href="#other" data-scroll="true">
                         <span>Other</span>
                       </a>
@@ -152,6 +164,12 @@
                     <li class="doc-sidebar-list__toc-item">
                       <a href="#watch-expression-reactivity" data-scroll="true">
                         <span>Watch expression, reactivity</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#compile-options" data-scroll="true">
+                        <span>Compile options</span>
                       </a>
                     </li>
                 </ul></li>
@@ -405,6 +423,9 @@
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>{#each items as item, index}...{/each}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{#each items as {id, name, key1, key2} }...{/each}
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>{#each items as item, index (item.id)}...{/each}
@@ -692,6 +713,113 @@ Also you can call it recursively.</p>
 
 </div>
 
+<h2 id="dynamic-component">Dynamic component</h2>
+
+<div class="columns2"><div>
+
+<p>Dynamic component let you to attach a component from variable/expression.</p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kr">import</span> <span class="nx">Music</span> <span class="nx">from</span> <span class="s1">&#39;./Music.xht&#39;</span><span class="p">;</span>
+    <span class="kr">import</span> <span class="nx">Movie</span> <span class="nx">from</span> <span class="s1">&#39;./Movie.xht&#39;</span><span class="p">;</span>
+
+    <span class="kd">let</span> <span class="nx">comp</span><span class="p">,</span> <span class="nx">x</span><span class="p">;</span>
+
+    <span class="kd">function</span> <span class="nx">toggle</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">comp</span> <span class="o">=</span> <span class="nx">comp</span> <span class="o">==</span> <span class="nx">Music</span> <span class="o">?</span> <span class="nx">Movie</span> <span class="o">:</span> <span class="nx">Music</span><span class="p">;</span>
+        <span class="nx">x</span> <span class="o">^=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">component:comp</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">component:</span><span class="err">{</span><span class="na">x</span> <span class="err">?</span> <span class="na">Music</span> <span class="na">:</span> <span class="na">Movie</span><span class="err">}</span> <span class="p">/&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click:toggle</span><span class="p">&gt;</span>Switch<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="passing-css-class">Passing CSS class</h2>
+
+<p>You can pass classes into child components and use them with property <code>$class</code> or attach them, <a href="https://medium.com/@lega911/how-a-popular-feature-declined-by-svelte-went-live-in-malina-js-1a08fdb9dbc4">read an article</a></p>
+
+<div class="columns2"><div>
+
+<p><strong>Property $class</strong>: If you pass classes into a component using attribute <code>class</code>, then a child component will have these classes with hash in attribute <code>$class</code></p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="c">&lt;!-- App --&gt;</span>
+<span class="p">&lt;</span><span class="nt">Child</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;red italic&quot;</span> <span class="p">/&gt;</span>
+
+<span class="c">&lt;!-- Child --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">{$class}</span><span class="p">&gt;</span>
+    Child
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p><strong>Named $class</strong>: If you need to pass more than one class property, you can use attribute of <code>$class</code>, like <code>$class.header</code></p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="c">&lt;!-- App --&gt;</span>
+<span class="p">&lt;</span><span class="nt">Child</span> <span class="err">.</span><span class="na">header</span><span class="o">=</span><span class="s">&quot;red bold&quot;</span> <span class="err">.</span><span class="na">body:italic</span><span class="o">=</span><span class="s">{cond}</span> <span class="p">/&gt;</span>
+
+<span class="c">&lt;!-- Child --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">{$class.header}</span><span class="p">&gt;</span>
+    Header
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">{$class.body}</span><span class="p">&gt;</span>
+    Body
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p><strong>Adopt a class</strong>: You can adopt a class using syntax <code>:export(.class-name) {...default style...}</code></p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="c">&lt;!-- App --&gt;</span>
+<span class="p">&lt;</span><span class="nt">Child</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn&quot;</span> <span class="p">/&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="p">.</span><span class="nc">btn</span> <span class="p">{</span><span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- Child --&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn&quot;</span><span class="p">&gt;</span>button<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="p">.</span><span class="nc">btn</span> <span class="p">{</span><span class="k">font-style</span><span class="p">:</span> <span class="kc">italic</span><span class="p">}</span>
+    <span class="p">:</span><span class="nd">export</span><span class="o">(</span><span class="p">.</span><span class="nc">btn</span><span class="o">)</span> <span class="p">{</span><span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p>Also you can rename passed class, and use class directives</p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Child</span> <span class="na">class:btn</span><span class="o">=</span><span class="s">{cond}</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">Child</span> <span class="err">.</span><span class="na">btn</span><span class="o">=</span><span class="s">&quot;red bold&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">Child</span> <span class="err">.</span><span class="na">btn:purple</span><span class="o">=</span><span class="s">{cond}</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+</div>
+
 <h2 id="other">Other</h2>
 
 <div class="columns2"><div>
@@ -793,6 +921,17 @@ Also you can call it recursively.</p>
 </code></pre></div>
 
 </div>
+
+<h2 id="compile-options">Compile options</h2>
+
+<ul>
+<li>warning - <function> to receive warnings</li>
+<li>inlineTemplate - <true/false> convert new line to \n</li>
+<li>hideLabel - <true/false> hide comment tags (labels) from DOM</li>
+<li>compact - <true/false> remove spaces between DOM elements</li>
+<li>autoSubscribe - <true/false> autosubscribe imported stores</li>
+<li>cssGenId - <function> generate hash for css classes</li>
+</ul>
 
         </div>
       </div>
