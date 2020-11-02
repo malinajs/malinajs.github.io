@@ -525,6 +525,10 @@ You can pass scoped classes, global classes and use expressions, e.g. `class:fon
 ---
 Default class name for child component is `main`, and you can define it.
 
+* Also you can pass partly global classes (e.g. `.button :global(.title)`)
+* Passing pseudo-classes (:hover etc)
+* Forward a class further
+
 ```html
 <!-- App -->
 <Child class="red italic" />
