@@ -501,72 +501,41 @@ Dynamic component let you to attach a component from variable/expression.
 
 ## Passing CSS class
 
-You can pass classes into child components and use them with property `$class` or attach them, [read an article](https://medium.com/@lega911/how-a-popular-feature-declined-by-svelte-went-live-in-malina-js-1a08fdb9dbc4)
+You can pass classes into child components using property `class`, to be able to use it in child class you have to place such classes in `external` block:
 
 ---
-**Property $class**: If you pass classes into a component using attribute `class`, then a child component will have these classes with hash in attribute `$class`
+**Syntax**: `class:childClassName="parentClass globalClass"`
 
+In the example, classes `red italic` is passed as class `font` in child component. If class is not passed default styles will be used.
+
+You can pass scoped classes, global classes and use expressions, e.g. `class:font="italic {color}"`
+
+```html
+<!-- App -->
+<Child class:font="red italic" />
+
+<!-- Child -->
+<div class="font">Child</div>
+
+<style external>
+    .font {color: blue;}  /* style by default */
+</style>
+```
+
+---
+Default class name for child component is `main`, and you can define it.
 
 ```html
 <!-- App -->
 <Child class="red italic" />
 
 <!-- Child -->
-<div class={$class}>
-    Child
-</div>
-```
+<div class="main">Child</div>
 
----
-**Named $class**: If you need to pass more than one class property, you can use attribute of `$class`, like `$class.header`
-
-
-```html
-<!-- App -->
-<Child .header="red bold" .body:italic={cond} />
-
-<!-- Child -->
-<div class={$class.header}>
-    Header
-</div>
-
-<div class={$class.body}>
-    Body
-</div>
-```
-
-
----
-**Adopt a class**: You can adopt a class using syntax `:export(.class-name) {...default style...}`
-
-
-```html
-<!-- App -->
-<Child class="btn" />
-
-<style>
-    .btn {color: red}
-</style>
-
-<!-- Child -->
-<button class="btn">button</button>
-
-<style>
-    .btn {font-style: italic}
-    :export(.btn) {color: blue}
+<style external main="main">
+    .main {color: blue;}  /* style by default */
 </style>
 ```
-
----
-Also you can rename passed class, and use class directives
-
-
-```html
-<Child class:btn={cond} />
-<Child .btn="red bold" />
-<Child .btn:purple={cond} />
-```
-
 
 
 ## Other
@@ -637,6 +606,15 @@ Using keyword `:global()` you make certain style as global.
 </style>
 ```
 
+---
+Also you can mark whole style-block as global
+
+```html
+<style global>
+    span { /* ... */ }
+</style>
+```
+
 
 ## Watch expression, reactivity
 
@@ -645,9 +623,11 @@ Using syntax `$:` you can observe changes.
 
 Computed value: `$: value = a + b`, `value` will be changed when an expression gives another result.
 
-Observe changes in expression; `$: name, () => console.log(name);`, a function will be called when `name` is changde.
+To observe changes in expression and call handler: `$: exp, handler()`.
+It can contain a few expressions: `$: exp1, exp2, a+b, handler()`.
 
-Also you can observe a few expressions: `$: exp1, exp2, exp3, (value1, value2, value3) => {...};`.
+Handler also can be link to function or statement: `$: exp, (newValue) => console.log(newValue);` or
+`$: exp, console.log(exp)` or `$: exp, handler`
 
 
 ```html
@@ -655,6 +635,7 @@ Also you can observe a few expressions: `$: exp1, exp2, exp3, (value1, value2, v
     let name = '';
     $: header = name.toUpperCase();
     $: name, () => console.log(name);
+    $: a + b, onChangeSum
 </script>
 
 <input type="text" :value={name} />

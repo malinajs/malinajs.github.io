@@ -5,7 +5,10 @@ td.linenos pre.special { color: #000000; background-color: #ffffc0; padding: 0 5
 span.linenos.special { color: #000000; background-color: #ffffc0; padding: 0 5px 0 5px; }
 .highlight .hll { background-color: #ffffcc }
 .highlight { background: #ffffff; }
-.highlight pre { border: 1px #e7e7e7 solid; }
+.highlight pre {
+    border: 1px #e7e7e7 solid;
+    margin-bottom: 8px;
+}
 .highlight .c { color: #60a0b0; font-style: italic } /* Comment */
 /* .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #007020; font-weight: bold } /* Keyword */

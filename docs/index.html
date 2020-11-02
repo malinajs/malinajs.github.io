@@ -743,11 +743,34 @@ Also you can call it recursively.</p>
 
 <h2 id="passing-css-class">Passing CSS class</h2>
 
-<p>You can pass classes into child components and use them with property <code>$class</code> or attach them, <a href="https://medium.com/@lega911/how-a-popular-feature-declined-by-svelte-went-live-in-malina-js-1a08fdb9dbc4">read an article</a></p>
+<p>You can pass classes into child components using property <code>class</code>, to be able to use it in child class you have to place such classes in <code>external</code> block:</p>
 
 <div class="columns2"><div>
 
-<p><strong>Property $class</strong>: If you pass classes into a component using attribute <code>class</code>, then a child component will have these classes with hash in attribute <code>$class</code></p>
+<p><strong>Syntax</strong>: <code>class:childClassName="parentClass globalClass"</code></p>
+
+<p>In the example, classes <code>red italic</code> is passed as class <code>font</code> in child component. If class is not passed default styles will be used.</p>
+
+<p>You can pass scoped classes, global classes and use expressions, e.g. <code>class:font="italic {color}"</code></p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="c">&lt;!-- App --&gt;</span>
+<span class="p">&lt;</span><span class="nt">Child</span> <span class="na">class:font</span><span class="o">=</span><span class="s">&quot;red italic&quot;</span> <span class="p">/&gt;</span>
+
+<span class="c">&lt;!-- Child --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;font&quot;</span><span class="p">&gt;</span>Child<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span> <span class="na">external</span><span class="p">&gt;</span>
+    <span class="p">.</span><span class="nc">font</span> <span class="p">{</span><span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;}</span>  <span class="c">/* style by default */</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<div class="columns2"><div>
+
+<p>Default class name for child component is <code>main</code>, and you can define it.</p>
 
 </div>
 
@@ -755,67 +778,11 @@ Also you can call it recursively.</p>
 <span class="p">&lt;</span><span class="nt">Child</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;red italic&quot;</span> <span class="p">/&gt;</span>
 
 <span class="c">&lt;!-- Child --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">{$class}</span><span class="p">&gt;</span>
-    Child
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;main&quot;</span><span class="p">&gt;</span>Child<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-</div>
-
-<div class="columns2"><div>
-
-<p><strong>Named $class</strong>: If you need to pass more than one class property, you can use attribute of <code>$class</code>, like <code>$class.header</code></p>
-
-</div>
-
-<div class="highlight"><pre><span></span><code><span class="c">&lt;!-- App --&gt;</span>
-<span class="p">&lt;</span><span class="nt">Child</span> <span class="err">.</span><span class="na">header</span><span class="o">=</span><span class="s">&quot;red bold&quot;</span> <span class="err">.</span><span class="na">body:italic</span><span class="o">=</span><span class="s">{cond}</span> <span class="p">/&gt;</span>
-
-<span class="c">&lt;!-- Child --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">{$class.header}</span><span class="p">&gt;</span>
-    Header
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">{$class.body}</span><span class="p">&gt;</span>
-    Body
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
-
-</div>
-
-<div class="columns2"><div>
-
-<p><strong>Adopt a class</strong>: You can adopt a class using syntax <code>:export(.class-name) {...default style...}</code></p>
-
-</div>
-
-<div class="highlight"><pre><span></span><code><span class="c">&lt;!-- App --&gt;</span>
-<span class="p">&lt;</span><span class="nt">Child</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn&quot;</span> <span class="p">/&gt;</span>
-
-<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-    <span class="p">.</span><span class="nc">btn</span> <span class="p">{</span><span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">}</span>
+<span class="p">&lt;</span><span class="nt">style</span> <span class="na">external</span> <span class="na">main</span><span class="o">=</span><span class="s">&quot;main&quot;</span><span class="p">&gt;</span>
+    <span class="p">.</span><span class="nc">main</span> <span class="p">{</span><span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;}</span>  <span class="c">/* style by default */</span>
 <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-
-<span class="c">&lt;!-- Child --&gt;</span>
-<span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn&quot;</span><span class="p">&gt;</span>button<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-
-<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-    <span class="p">.</span><span class="nc">btn</span> <span class="p">{</span><span class="k">font-style</span><span class="p">:</span> <span class="kc">italic</span><span class="p">}</span>
-    <span class="p">:</span><span class="nd">export</span><span class="o">(</span><span class="p">.</span><span class="nc">btn</span><span class="o">)</span> <span class="p">{</span><span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">}</span>
-<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</code></pre></div>
-
-</div>
-
-<div class="columns2"><div>
-
-<p>Also you can rename passed class, and use class directives</p>
-
-</div>
-
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Child</span> <span class="na">class:btn</span><span class="o">=</span><span class="s">{cond}</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">Child</span> <span class="err">.</span><span class="na">btn</span><span class="o">=</span><span class="s">&quot;red bold&quot;</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">Child</span> <span class="err">.</span><span class="na">btn:purple</span><span class="o">=</span><span class="s">{cond}</span> <span class="p">/&gt;</span>
 </code></pre></div>
 
 </div>
@@ -897,6 +864,19 @@ Also you can call it recursively.</p>
 
 </div>
 
+<div class="columns2"><div>
+
+<p>Also you can mark whole style-block as global</p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span> <span class="na">global</span><span class="p">&gt;</span>
+    <span class="nt">span</span> <span class="p">{</span> <span class="c">/* ... */</span> <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
 <h2 id="watch-expression-reactivity">Watch expression, reactivity</h2>
 
 <div class="columns2"><div>
@@ -905,9 +885,11 @@ Also you can call it recursively.</p>
 
 <p>Computed value: <code>$: value = a + b</code>, <code>value</code> will be changed when an expression gives another result.</p>
 
-<p>Observe changes in expression; <code>$: name, () =&gt; console.log(name);</code>, a function will be called when <code>name</code> is changde.</p>
+<p>To observe changes in expression and call handler: <code>$: exp, handler()</code>.
+It can contain a few expressions: <code>$: exp1, exp2, a+b, handler()</code>.</p>
 
-<p>Also you can observe a few expressions: <code>$: exp1, exp2, exp3, (value1, value2, value3) =&gt; {...};</code>.</p>
+<p>Handler also can be link to function or statement: <code>$: exp, (newValue) =&gt; console.log(newValue);</code> or
+<code>$: exp, console.log(exp)</code> or <code>$: exp, handler</code></p>
 
 </div>
 
@@ -915,6 +897,7 @@ Also you can call it recursively.</p>
     <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
     <span class="nx">$</span><span class="o">:</span> <span class="nx">header</span> <span class="o">=</span> <span class="nx">name</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
     <span class="nx">$</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+    <span class="nx">$</span><span class="o">:</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">onChangeSum</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">:value</span><span class="o">=</span><span class="s">{name}</span> <span class="p">/&gt;</span>
