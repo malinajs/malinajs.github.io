@@ -578,26 +578,35 @@ If class name starts with `$` is's marked as extrenal
 ```
 
 
-## Other
+# Other
+
+## Property
 
 ---
-If you have an instance of component, you can read/write properties directly.
+If you have an instance of component, you can read/write properties directly, a component should have attribute `property`.
 
 ```html
-<script>
-    import Component from './Component.html';
-    let comp;
+<!-- Component -->
+<script property>
+  export let value = 0;
+</script>
 
-    function increment() {
-        comp.value++;
-    }
+<!-- App -->
+<script>
+  import Component from './Component.html';
+  let comp;
+
+  function increment() {
+    comp.value++;
+  }
 </script>
 <Component #comp />
 ```
 
 
 ---
-If you need to perform some code after mounting or during destroying a component, you can use declare functions `onMount`, `onDestroy`, or use a built function `$onDestroy(fn)`.
+If you need to perform some code after mounting or during destroying a component, you can use declare functions `onMount`, `onDestroy`, or use a built function `$onMount(fn)`, `$onDestroy(fn)`.
+
 
 ```html
 <script>
@@ -619,8 +628,6 @@ If you need to perform some code after mounting or during destroying a component
 ```
 
 
-
-# Other
 
 ## Scoped CSS
 
@@ -679,6 +686,23 @@ Handler also can be link to function or statement: `$: exp, (newValue) => consol
 </script>
 
 <input type="text" :value={name} />
+```
+
+
+## $context
+
+---
+An arbitrary context object of a component, a content is available in child components. For external libs must be used during component initialisation.
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/ruuaxwKMddf?version=0.6.36">example</a>
+
+```js
+// App.xht
+import { $context } from 'malinajs';
+$context.value = 'Test';
+
+// Child.xht
+import { $context } from 'malinajs';
+let value = $context.value;
 ```
 
 

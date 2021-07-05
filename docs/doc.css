@@ -690,7 +690,8 @@ body {
 }
 
 .doc-sidebar-list {
-	padding-left: 0
+	padding-left: 0;
+	margin-bottom: 100px;
 }
 
 .doc-sidebar-list__item {
