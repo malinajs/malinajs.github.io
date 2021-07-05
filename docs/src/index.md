@@ -6,11 +6,11 @@ You can bind JavaScript expression in html-text, you can use 3 types of quotes: 
 
 ```html
 <div>
-    {name}
-    {getValue('title')}
-    {a} + {b} = {a + b}
-    {'text with "quotes"' + `123`}
-    {`js template ${variable}`}
+  {name}
+  {getValue('title')}
+  {a} + {b} = {a + b}
+  {'text with "quotes"' + `123`}
+  {`js template ${variable}`}
 </div>
 ```
 
@@ -24,8 +24,8 @@ You can get reference to element/component using `#ref` and save it to a variabl
 
 ```html
 <script>
-    let ref;
-    let component;
+  let ref;
+  let component;
 </script>
 
 <input #ref />
@@ -51,10 +51,10 @@ Also you can *spread* an object to attributes.
 
 ```html
 <script>
-    let props = {
-        value: 'Hello',
-        title: 'Some title'
-    };
+  let props = {
+    value: 'Hello',
+    title: 'Some title'
+  };
 </script>
 
 <input {...props} />
@@ -68,8 +68,8 @@ For 2-way binding you can use `bind:value={value}` or shortcut `:value={value}`,
 
 ```html
 <script>
-    let name = '';
-    let checked = false;
+  let name = '';
+  let checked = false;
 </script>
 <input type="text" :value={name} />
 <input type="checkbox" :checked />
@@ -85,11 +85,16 @@ To set class and style you can use `class:className={condition}`, `style:styleNa
 <div class:blue={value} class:red={!value}>by class name</div>
 <div class="{value?'red':'blue'}">attribute class</div>
 <b style="color: {value?'green':'red'};">style as string</b>
-<b style:color={value}>Style as prop</b>
+<div style:color={color}
+  style:border-color="red"
+  style:border="1px solid {color}">
+    Style as prop/template
+</div>
+
 
 <style>
-    .blue {};
-    .red {};
+  .blue {};
+  .red {};
 </style>
 ```
 
@@ -103,9 +108,9 @@ Also you can run some JavaScript code where `$element` is available - `*{$elemen
 
 ```html
 <script>
-    function draw(element) {
-        ...
-    }
+  function draw(element) {
+    ...
+  }
 </script>
 <div *draw></div>
 <input *{$element.focus()} />
@@ -129,6 +134,20 @@ If you need more control you can pass arguments and subscribe for updates and de
 ```
 
 
+## Insert JS
+
+---
+You can insert casual JS in template, a current DOM-node is available as `$element`.
+<a href="https://malinajs.github.io/repl/#/gist/d6f930f4b47e7fed5335be83d692a423?version=0.6.36" target="_blank">example</a>
+
+```html
+{* const name = 'random code' }
+<div {* $element.style.color = 'red' }>
+    {name}
+</div>
+```
+
+
 ## Events
 
 ---
@@ -138,17 +157,20 @@ For expression you can use function name `@click={handler}` or `@click:handler`,
 
 ```html
 <script>
-    const handler = (event) => {};
+    const click = (event) => {};
 </script>
-<button @click:handler>Click</button>
-<button @click={handler}>Click</button>
-<button @click={(e) => handler(e)}>Click</button>
-<button @click={handler($event, $element)}>Click</button>
+<button @click>Click</button>
+<button @click:click>Click</button>
+<button @click={click}>Click</button>
+<button @click={(e) => click(e)}>Click</button>
+<button @click={click($event, $element)}>Click</button>
 ```
 
-
 ---
-Also you can use modificators for elements: `enter`, `escape`, `preventDefault`.
+Also you can use modificators for elements: `preventDefault` or `prevent`, `stopPropagation` or `stop`
+for keyboard events: `enter`, `tab`, `esc`, `space`, `up`, `down`, `left`, `right`, `delete`,
+meta keys: `ctrl`, `alt`, `shift`, `meta`
+
 
 ```html
 <input type="text" @keyup|enter:handler />
@@ -156,12 +178,12 @@ Also you can use modificators for elements: `enter`, `escape`, `preventDefault`.
 
 
 ---
-Also you can forward events to a parent component, `@eventName` to forward one type of event, `@@` to forward all events from current element, the same works for components.
+Also you can forward events to a parent component, `@@eventName` to forward one type of event, `@@` to forward all events from current element, the same works for components.
 
 ```html
-<button @click>Click</button>
+<button @@click>Click</button>
 <input type="text" @@ />
-<Component @click />
+<Component @@click />
 ```
 
 
@@ -501,7 +523,9 @@ Dynamic component let you to attach a component from variable/expression.
 
 ## Passing CSS class
 
-You can pass classes into child components using property `class`, to be able to use it in child class you have to place such classes in `external` block:
+You can pass classes into child components using property `class`, to be able to use it in child class you have to place such classes in `external` block.
+<a target="_blank" href="https://malinajs.github.io/repl/#/gist/065441c1187bfd9ce5f0117b7dbd97f6?version=0.6.36">example</a>, 
+<a target="_blank" href="https://malinajs.github.io/repl/#/gist/410bb2c1406ea412ad4b4e75616d9581?version=0.6.36">example2</a>
 
 ---
 **Syntax**: `class:childClassName="parentClass globalClass"`
@@ -539,6 +563,18 @@ Default class name for child component is `main`, and you can define it.
 <style external main="main">
     .main {color: blue;}  /* style by default */
 </style>
+```
+
+---
+If class name starts with `$` is's marked as extrenal
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/0O8PvtvEW37?version=0.6.36">example</a>
+
+```html
+<!-- App -->
+<Child class="red italic" />
+
+<!-- Child -->
+<div class="$main">Child</div>
 ```
 
 
