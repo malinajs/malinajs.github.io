@@ -122,13 +122,13 @@ If you need more control you can pass arguments and subscribe for updates and de
 
 ```html
 <script>
-    function draw(element, a, b) {
-        ...
-        return {
-            update: (a, b) => {},
-            destroy: () => {}
-        }
+  function draw(element, a, b) {
+    ...
+    return {
+      update: (a, b) => {},
+      destroy: () => {}
     }
+  }
 </script>
 <div *draw={a, b}></div>
 ```
@@ -143,7 +143,7 @@ You can insert casual JS in template, a current DOM-node is available as `$eleme
 ```html
 {* const name = 'random code' }
 <div {* $element.style.color = 'red' }>
-    {name}
+  {name}
 </div>
 ```
 
@@ -157,7 +157,7 @@ For expression you can use function name `@click={handler}` or `@click:handler`,
 
 ```html
 <script>
-    const click = (event) => {};
+  const click = (event) => {};
 </script>
 <button @click>Click</button>
 <button @click:click>Click</button>
@@ -197,9 +197,9 @@ Block of template can be rendered by condition.
 
 ```html
 {#if condition}
-    One content
+  One content
 {:else}
-    Another content
+  Another content
 {/if}
 ```
 
@@ -207,18 +207,19 @@ Block of template can be rendered by condition.
 ## #each
 
 ---
-Iterating over list.
+Iterating over list, you can pass a key which lets to associate item with DOM element, by default key is chosen depends on content.
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/TSK8J7eijHo?version=0.6.36">example</a> shows difference depends of used key.
 
 ```html
 <ul>
-    {#each items as item}
-        <li>{item.name}</li>
-    {/each}
+  {#each items as item}
+    <li>{item.name}</li>
+  {/each}
 </ul>
 ```
 
 
-Possible options:
+Examples:
 
 ```html
 {#each items as item}...{/each}
@@ -248,18 +249,20 @@ Possible options:
 ## #fragment
 
 
+---
 You can declare some fragment to reuse it a few times other places. Also it can be declared anywhere, e.g. inside of the `#each`, so it will have all scoped variables.
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/QzoQntzlIxI?version=0.6.36">example</a>
 
 ```html
 <div>
-    {#fragment:button text}
-        <div class="col-sm-6 smallpad">
-            <button @click type="button" class="btn">{text}</button>
-        </div>
-    {/fragment}
+  {#fragment:button text}
+    <div class="col-sm-6 smallpad">
+      <button @@click class="btn">{text}</button>
+    </div>
+  {/fragment}
 
-    <fragment:button text='Left' @click:left />
-    <fragment:button text='Right' @click:right />
+  <fragment:button text='Left' @click:left />
+  <fragment:button text='Right' @click:right />
 </div>
 ```
 
@@ -268,34 +271,55 @@ Also you can call it recursively.
 
 ```html
 <script>
-    let tree = [{
-        name: 'OS',
-        children: [{
-            name: 'Linux',
-            children: [{name: 'Ubuntu'}, {name: 'Debian'}, {name: 'RedHat'}]
-        }, {
-            name: 'MacOS X'
-        }]
-    }];
+  let tree = [{
+    name: 'OS',
+    children: [{
+      name: 'Linux',
+      children: [{name: 'Ubuntu'}, {name: 'Debian'}, {name: 'RedHat'}]
+    }, {
+      name: 'MacOS X'
+    }]
+  }];
 
-    const click = (name) => {console.log(name)};
+  const click = (name) => {console.log(name)};
 </script>
 
 <fragment:draw list={tree}>
 
 {#fragment:draw list}
-    <ul>
-        {#each list as it}
-        <li @click|stopPropagation={click(it.name)}>
-            {it.name}
-            {#if it.children}
-                <fragment:draw list={it.children} />
-            {/if}
-        </li>
-        {/each}
-    </ul>
+  <ul>
+    {#each list as it}
+    <li @click|stopPropagation={click(it.name)}>
+      {it.name}
+      {#if it.children}
+        <fragment:draw list={it.children} />
+      {/if}
+    </li>
+    {/each}
+  </ul>
 {/fragment}
 ```
+
+---
+Also you can pass slot to fragment,
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/jgtdUmDtkJK?version=0.6.36">example</a>
+
+```html
+{#fragment:field}
+  <div class="field">
+    <slot/>
+  </div>
+{/fragment}
+
+<fragment:field>
+  <button>Click</button>
+</fragment>
+
+<fragment:field>
+  <input type="text" />
+</fragment>
+```
+
 
 
 ## #await
@@ -306,11 +330,11 @@ You can await a promise to display placeholder etc.
 ```html
 <div>
 {#await promise}
-    Loading...
+  Loading...
 {:then value}
-    Data: {value}
+  Data: {value}
 {:catch error}
-    Loading error: {error}
+  Loading error: {error}
 {/await}
 </div>
 ```
@@ -338,10 +362,44 @@ To render some HTML, you can use `{@html expression}`.
 
 ```html
 <div>
-    {@html post.content}
+  {@html post.content}
 </div>
 ```
 
+
+
+### Portal
+
+---
+Portal lets you render a template outside of component, argument `mount` == 'document.body' by default.
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/EQIPLZrARiM?version=0.6.36">example</a>
+
+```html
+<malina:portal mount={document.body}>
+  <div class="popup">
+    <h1>Popup</h1>
+    <p>Some text</p>
+  </div>
+</malina:portal>
+```
+
+
+
+## head / body / window
+
+---
+These special elements lets you handle head/body/window:
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/EG0Q_RI2cfo?version=0.6.36">example</a>
+
+
+```html
+<malina:head>
+  <title>Set title</title>
+  <link rel="stylesheet" href="theme.css" />
+</malina:head>
+<malina:body @keydown|esc:escape />
+<malina:window @scroll />
+```
 
 
 # Components
@@ -353,13 +411,13 @@ A component can have script block, style block and rest content becomes a templa
 
 ```html
 <script>
-    ...
+  ...
 </script>
 
 ... content ...
 
 <style>
-    ...
+  ...
 </style>
 ```
 
@@ -369,7 +427,7 @@ You can import a component `import Component from './Component.html'`, and use i
 
 ```html
 <script>
-    import Component from './Component.html';
+  import Component from './Component.html';
 </script>
 
 <Component />
@@ -396,10 +454,10 @@ A parent can pass more arguments than number of props in a component, so all arg
 
 ```html
 <script>
-    export let name = 'default';
+  export let name = 'default';
 
-    $props
-    $attributes
+  $props
+  $attributes
 </script>
 
 <input {...$props} />
@@ -432,7 +490,7 @@ Also you can emit an custom event, for this you can use a built function `$emit(
 
 ```html
 <script>
-    $emit('myevent', 'info');
+  $emit('myevent', 'info');
 </script>
 ```
 
@@ -452,21 +510,20 @@ You can pass slots to a child component. To pass a default slot:
 <slot>No content</slot>
 ```
 
-
 ---
 To pass named slots:
 
 ```html
 <Child>
-    {#slot:title}
-        Some title
-    {/slot}
+  {#slot:title}
+    Some title
+  {/slot}
 
-    Some content
+  Some content
 
-    {#slot:footer}
-        Some footer
-    {/slot}
+  {#slot:footer}
+    Some footer
+  {/slot}
 </Child>
 
 <!-- Child.html -->
@@ -483,16 +540,58 @@ A child component can pass a property to parent slot:
 
 ```html
 <Child>
-    {#slot prop}
-        Some content {prop.value} {parentVar}
-    {/slot}
+  {#slot prop}
+    Some content {prop.value} {parentVar}
+  {/slot}
 </Child>
 
 <!-- Child.html -->
 
 {#each items as item}
-    <slot prop={item}>No content {childVar}</slot>
+  <slot prop={item}>No content {childVar}</slot>
 {/each}
+```
+
+
+## Call child fragment
+
+---
+You can call a fragment from child component, it looks like inverted slot,
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/e5n7BjROYSA?version=0.6.34">example</a>
+
+
+```html
+<!-- Child -->
+{#fragment:title export}
+  <h1 class="header">{name}</h1>
+{/fragment}
+
+<!-- App -->
+<Child>
+  <Child:title>Header</>
+</Child>
+```
+
+
+## Anchor
+
+---
+It lets you pass controls (classes, events, actions etc) without template to child component.
+<a target="_blank" href="https://malinajs.github.io/repl/#/gist/2824bcb54eab5f9b4dded54c59298944?version=0.6.36">example</a>
+
+```html
+<!-- App -->
+<Child>
+  <^root class="border" />
+  <^name style="font-weight: bold; color: red" />
+  <^input type="text" *action :value />
+</Child>
+
+<!-- Child -->
+<div ^root>
+  <span ^name>Name</span>
+  <input ^input />
+</div>
 ```
 
 
@@ -503,15 +602,15 @@ Dynamic component let you to attach a component from variable/expression.
 
 ```html
 <script>
-    import Music from './Music.xht';
-    import Movie from './Movie.xht';
-    
-    let comp, x;
+  import Music from './Music.xht';
+  import Movie from './Movie.xht';
+  
+  let comp, x;
 
-    function toggle() {
-        comp = comp == Music ? Movie : Music;
-        x ^= 1;
-    }
+  function toggle() {
+    comp = comp == Music ? Movie : Music;
+    x ^= 1;
+  }
 </script>
 
 <component:comp />
@@ -542,7 +641,7 @@ You can pass scoped classes, global classes and use expressions, e.g. `class:fon
 <div class="font">Child</div>
 
 <style external>
-    .font {color: blue;}  /* style by default */
+  .font {color: blue;}  /* style by default */
 </style>
 ```
 
@@ -561,7 +660,7 @@ Default class name for child component is `main`, and you can define it.
 <div class="main">Child</div>
 
 <style external main="main">
-    .main {color: blue;}  /* style by default */
+  .main {color: blue;}  /* style by default */
 </style>
 ```
 
@@ -610,19 +709,18 @@ If you need to perform some code after mounting or during destroying a component
 
 ```html
 <script>
+  called_at_start();
 
-    called_at_start();
+  function onMount() {
+    // called after mounting
 
-    function onMount() {
-        // called after mounting
+    $onDestroy(() => {...});  // subscribe on destroying
+    $onDestroy(() => {...});
+  }
 
-        $onDestroy(() => {...});  // subscribe on destroying
-        $onDestroy(() => {...});
-    }
-
-    function onDestroy() {
-        // called during destroying
-    }
+  function onDestroy() {
+    // called during destroying
+  }
 </script>
 <Component #comp />
 ```
@@ -638,18 +736,18 @@ Using keyword `:global()` you make certain style as global.
 
 ```html
 <style>
-    span {
-        /* all <span> elements, only from
-        current component will be affected */
-    }
-    :global(body) {
-        /* effects on <body> */
-    }
-    div :global(span) {
-        /* effects on all <span> elements
-        (including child components)
-        inside of <div> from current component */
-    }
+  span {
+    /* all <span> elements, only from
+    current component will be affected */
+  }
+  :global(body) {
+    /* effects on <body> */
+  }
+  div :global(span) {
+    /* effects on all <span> elements
+    (including child components)
+    inside of <div> from current component */
+  }
 </style>
 ```
 
@@ -658,7 +756,7 @@ Also you can mark whole style-block as global
 
 ```html
 <style global>
-    span { /* ... */ }
+  span { /* ... */ }
 </style>
 ```
 
@@ -679,10 +777,10 @@ Handler also can be link to function or statement: `$: exp, (newValue) => consol
 
 ```html
 <script>
-    let name = '';
-    $: header = name.toUpperCase();
-    $: name, () => console.log(name);
-    $: a + b, onChangeSum
+  let name = '';
+  $: header = name.toUpperCase();
+  $: name, () => console.log(name);
+  $: a + b, onChangeSum
 </script>
 
 <input type="text" :value={name} />
