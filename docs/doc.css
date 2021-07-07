@@ -10,10 +10,20 @@ body {
 	margin: 0
 }
 
-.columns2 {
-	display: grid;
-	grid-template-columns: calc(50% - .5em) calc(50% - .5em);
-	grid-gap: 1em
+
+@media screen and (max-width:799px) {
+	.columns2 {
+		display: grid;
+		grid-template-columns: auto;
+	}
+}
+
+@media screen and (min-width:800px) {
+	.columns2 {
+		display: grid;
+		grid-template-columns: calc(50% - .5em) calc(50% - .5em);
+		grid-gap: 1em
+	}
 }
 
 a.external::after {
@@ -846,5 +856,5 @@ body {
 	padding: 1em 1.25em;
 	white-space: pre-wrap;
 	color: #333;
-	background: #f7f7f7
+	background: #f6fafd
 }

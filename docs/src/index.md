@@ -2,7 +2,7 @@
 # Expression in text
 
 ---
-You can bind JavaScript expression in html-text, you can use 3 types of quotes: ` '', "", `` `.
+You can bind JavaScript expression in html-template.
 
 ```html
 <div>
