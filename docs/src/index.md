@@ -813,15 +813,17 @@ Handler also can be link to function or statement: `$: exp, (newValue) => consol
 ## $context
 
 ---
-An arbitrary context object of a component, a content is available in child components. For external libs must be used during component initialisation.
-<a target="_blank" href="https://malinajs.github.io/repl/#/share/ruuaxwKMddf?version=0.6.36">example</a>
+An arbitrary context object of a component, a content is available in child components. For external libs it must be imported from "malinajs" and used during component initialisation.
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/NeIq-KUQnTD?version=0.6.36">example</a>
 
 ```js
 // App.xht
-import { $context } from 'malinajs';
 $context.value = 'Test';
 
 // Child.xht
+let value = $context.value;
+
+// lib.js
 import { $context } from 'malinajs';
 let value = $context.value;
 ```

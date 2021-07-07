@@ -1162,16 +1162,18 @@ It can contain a few expressions: <code>$: exp1, exp2, a+b, handler()</code>.</p
 
 <div class="columns2"><div>
 
-<p>An arbitrary context object of a component, a content is available in child components. For external libs must be used during component initialisation.
-<a target="_blank" href="https://malinajs.github.io/repl/#/share/ruuaxwKMddf?version=0.6.36">example</a></p>
+<p>An arbitrary context object of a component, a content is available in child components. For external libs it must be imported from "malinajs" and used during component initialisation.
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/NeIq-KUQnTD?version=0.6.36">example</a></p>
 
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="c1">// App.xht</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">$context</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;malinajs&#39;</span><span class="p">;</span>
 <span class="nx">$context</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;Test&#39;</span><span class="p">;</span>
 
 <span class="c1">// Child.xht</span>
+<span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">$context</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+
+<span class="c1">// lib.js</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">$context</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;malinajs&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">$context</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
 </code></pre></div>
