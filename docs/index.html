@@ -69,6 +69,12 @@
                     </li>
                 
                     <li class="doc-sidebar-list__toc-item">
+                      <a href="#insert-js" data-scroll="true">
+                        <span>Insert JS</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
                       <a href="#events" data-scroll="true">
                         <span>Events</span>
                       </a>
@@ -104,6 +110,18 @@
                         <span>@html</span>
                       </a>
                     </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#portal" data-scroll="true">
+                        <span>Portal</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#head-body-window" data-scroll="true">
+                        <span>head / body / window</span>
+                      </a>
+                    </li>
                 </ul></li>
 <li class="doc-sidebar-list__item doc-sidebar-list__item--link">             <a href="#components"><span><b>Components</b></span></a><ul class="doc-sidebar-list__toc-list">
                     <li class="doc-sidebar-list__toc-item">
@@ -137,6 +155,18 @@
                     </li>
                 
                     <li class="doc-sidebar-list__toc-item">
+                      <a href="#call-child-fragment" data-scroll="true">
+                        <span>Call child fragment</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#anchor" data-scroll="true">
+                        <span>Anchor</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
                       <a href="#dynamic-component" data-scroll="true">
                         <span>Dynamic component</span>
                       </a>
@@ -147,14 +177,26 @@
                         <span>Passing CSS class</span>
                       </a>
                     </li>
-                
+                </ul></li>
+<li class="doc-sidebar-list__item doc-sidebar-list__item--link">             <a href="#other"><span><b>Other</b></span></a><ul class="doc-sidebar-list__toc-list">
                     <li class="doc-sidebar-list__toc-item">
-                      <a href="#other" data-scroll="true">
-                        <span>Other</span>
+                      <a href="#property" data-scroll="true">
+                        <span>Property</span>
                       </a>
                     </li>
-                </ul></li>
-<li class="doc-sidebar-list__item doc-sidebar-list__item--link">             <a href="#other-2"><span><b>Other</b></span></a><ul class="doc-sidebar-list__toc-list">
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#onmount-ondestroy" data-scroll="true">
+                        <span>onMount / onDestroy</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#turn-change-detector-off" data-scroll="true">
+                        <span>Turn change-detector off</span>
+                      </a>
+                    </li>
+                
                     <li class="doc-sidebar-list__toc-item">
                       <a href="#scoped-css" data-scroll="true">
                         <span>Scoped CSS</span>
@@ -164,6 +206,18 @@
                     <li class="doc-sidebar-list__toc-item">
                       <a href="#watch-expression-reactivity" data-scroll="true">
                         <span>Watch expression, reactivity</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#context" data-scroll="true">
+                        <span>$context</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
+                      <a href="#error-handling" data-scroll="true">
+                        <span>Error handling</span>
                       </a>
                     </li>
                 
@@ -191,11 +245,11 @@
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-    {name}
-    {getValue(&#39;title&#39;)}
-    {a} + {b} = {a + b}
-    {&#39;text with &quot;quotes&quot;&#39; + `123`}
-    {`js template ${variable}`}
+  {name}
+  {getValue(&#39;title&#39;)}
+  {a} + {b} = {a + b}
+  {&#39;text with &quot;quotes&quot;&#39; + `123`}
+  {`js template ${variable}`}
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 
@@ -212,8 +266,8 @@
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kd">let</span> <span class="nx">ref</span><span class="p">;</span>
-    <span class="kd">let</span> <span class="nx">component</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">ref</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">component</span><span class="p">;</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">input</span> <span class="err">#</span><span class="na">ref</span> <span class="p">/&gt;</span>
@@ -245,10 +299,10 @@
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kd">let</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span>
-        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Some title&#39;</span>
-    <span class="p">};</span>
+  <span class="kd">let</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Some title&#39;</span>
+  <span class="p">};</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">input</span> <span class="err">{...</span><span class="na">props</span><span class="err">}</span> <span class="p">/&gt;</span>
@@ -265,8 +319,8 @@
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-    <span class="kd">let</span> <span class="nx">checked</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">checked</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">:value</span><span class="o">=</span><span class="s">{name}</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">:checked</span> <span class="p">/&gt;</span>
@@ -285,11 +339,16 @@
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class:blue</span><span class="o">=</span><span class="s">{value}</span> <span class="na">class:red</span><span class="o">=</span><span class="s">{!value}</span><span class="p">&gt;</span>by class name<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;{value?&#39;red&#39;:&#39;blue&#39;}&quot;</span><span class="p">&gt;</span>attribute class<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">b</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: {value?&#39;green&#39;:&#39;red&#39;};&quot;</span><span class="p">&gt;</span>style as string<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">b</span> <span class="na">style:color</span><span class="o">=</span><span class="s">{value}</span><span class="p">&gt;</span>Style as prop<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style:color</span><span class="o">=</span><span class="s">{color}</span>
+  <span class="na">style:border-color</span><span class="o">=</span><span class="s">&quot;red&quot;</span>
+  <span class="na">style:border</span><span class="o">=</span><span class="s">&quot;1px solid {color}&quot;</span><span class="p">&gt;</span>
+    Style as prop/template
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
 
 <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-    <span class="p">.</span><span class="nc">blue</span> <span class="p">{}</span><span class="o">;</span>
-    <span class="p">.</span><span class="nc">red</span> <span class="p">{}</span><span class="o">;</span>
+  <span class="p">.</span><span class="nc">blue</span> <span class="p">{}</span><span class="o">;</span>
+  <span class="p">.</span><span class="nc">red</span> <span class="p">{}</span><span class="o">;</span>
 <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </code></pre></div>
 
@@ -306,9 +365,9 @@
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kd">function</span> <span class="nx">draw</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
-        <span class="p">...</span>
-    <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">draw</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span>
+  <span class="p">}</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="err">*</span><span class="na">draw</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="err">*{$</span><span class="na">element</span><span class="err">.</span><span class="na">focus</span><span class="err">()}</span> <span class="p">/&gt;</span>
@@ -323,15 +382,32 @@
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kd">function</span> <span class="nx">draw</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
-        <span class="p">...</span>
-        <span class="k">return</span> <span class="p">{</span>
-            <span class="nx">update</span><span class="o">:</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{},</span>
-            <span class="nx">destroy</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{}</span>
-        <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">draw</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">update</span><span class="o">:</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{},</span>
+      <span class="nx">destroy</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{}</span>
     <span class="p">}</span>
+  <span class="p">}</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="err">*</span><span class="na">draw</span><span class="o">=</span><span class="s">{a,</span> <span class="na">b</span><span class="err">}</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="insert-js">Insert JS</h2>
+
+<div class="columns2"><div>
+
+<p>You can insert casual JS in template, a current DOM-node is available as <code>$element</code>.
+<a href="https://malinajs.github.io/repl/#/gist/d6f930f4b47e7fed5335be83d692a423?version=0.6.36" target="_blank">example</a></p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code>{* const name = &#39;random code&#39; }
+<span class="p">&lt;</span><span class="nt">div</span> <span class="err">{*</span> <span class="err">$</span><span class="na">element</span><span class="err">.</span><span class="na">style</span><span class="err">.</span><span class="na">color </span><span class="o">=</span> <span class="s">&#39;red&#39;</span> <span class="err">}</span><span class="p">&gt;</span>
+  {name}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 
 </div>
@@ -347,19 +423,22 @@
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kr">const</span> <span class="nx">handler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{};</span>
+  <span class="kr">const</span> <span class="nx">click</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{};</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click:handler</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">{handler}</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">{(e)</span> <span class="err">=</span><span class="p">&gt;</span> handler(e)}&gt;Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">{handler($event,</span> <span class="err">$</span><span class="na">element</span><span class="err">)}</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click:click</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">{click}</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">{(e)</span> <span class="err">=</span><span class="p">&gt;</span> click(e)}&gt;Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">{click($event,</span> <span class="err">$</span><span class="na">element</span><span class="err">)}</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 
 </div>
 
 <div class="columns2"><div>
 
-<p>Also you can use modificators for elements: <code>enter</code>, <code>escape</code>, <code>preventDefault</code>.</p>
+<p>Also you can use modificators for elements: <code>preventDefault</code> or <code>prevent</code>, <code>stopPropagation</code> or <code>stop</code>
+for keyboard events: <code>enter</code>, <code>tab</code>, <code>esc</code>, <code>space</code>, <code>up</code>, <code>down</code>, <code>left</code>, <code>right</code>, <code>delete</code>,
+meta keys: <code>ctrl</code>, <code>alt</code>, <code>shift</code>, <code>meta</code></p>
 
 </div>
 
@@ -370,13 +449,13 @@
 
 <div class="columns2"><div>
 
-<p>Also you can forward events to a parent component, <code>@eventName</code> to forward one type of event, <code>@@</code> to forward all events from current element, the same works for components.</p>
+<p>Also you can forward events to a parent component, <code>@@eventName</code> to forward one type of event, <code>@@</code> to forward all events from current element, the same works for components.</p>
 
 </div>
 
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="err">@@</span><span class="na">click</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="err">@@</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">Component</span> <span class="err">@</span><span class="na">click</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">Component</span> <span class="err">@@</span><span class="na">click</span> <span class="p">/&gt;</span>
 </code></pre></div>
 
 </div>
@@ -392,9 +471,9 @@
 </div>
 
 <div class="highlight"><pre><span></span><code>{#if condition}
-    One content
+  One content
 {:else}
-    Another content
+  Another content
 {/if}
 </code></pre></div>
 
@@ -404,20 +483,21 @@
 
 <div class="columns2"><div>
 
-<p>Iterating over list.</p>
+<p>Iterating over list, you can pass a key which lets to associate item with DOM element, by default key is chosen depends on content.
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/TSK8J7eijHo?version=0.6.36">example</a> shows difference depends of used key.</p>
 
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-    {#each items as item}
-        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{item.name}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-    {/each}
+  {#each items as item}
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{item.name}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  {/each}
 <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </code></pre></div>
 
 </div>
 
-<p>Possible options:</p>
+<p>Examples:</p>
 
 <div class="highlight"><pre><span></span><code>{#each items as item}...{/each}
 </code></pre></div>
@@ -439,52 +519,83 @@
 
 <h2 id="fragment">#fragment</h2>
 
-<p>You can declare some fragment to reuse it a few times other places. Also it can be declared anywhere, e.g. inside of the <code>#each</code>, so it will have all scoped variables.</p>
+<div class="columns2"><div>
+
+<p>You can declare some fragment to reuse it a few times other places. Also it can be declared anywhere, e.g. inside of the <code>#each</code>, so it will have all scoped variables.
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/QzoQntzlIxI?version=0.6.36">example</a></p>
+
+</div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-    {#fragment:button text}
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm-6 smallpad&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn&quot;</span><span class="p">&gt;</span>{text}<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    {/fragment}
+  {#fragment:button text}
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-sm-6 smallpad&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@@</span><span class="na">click</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn&quot;</span><span class="p">&gt;</span>{text}<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  {/fragment}
 
-    <span class="p">&lt;</span><span class="nt">fragment:button</span> <span class="na">text</span><span class="o">=</span><span class="s">&#39;Left&#39;</span> <span class="err">@</span><span class="na">click:left</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;</span><span class="nt">fragment:button</span> <span class="na">text</span><span class="o">=</span><span class="s">&#39;Right&#39;</span> <span class="err">@</span><span class="na">click:right</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">fragment:button</span> <span class="na">text</span><span class="o">=</span><span class="s">&#39;Left&#39;</span> <span class="err">@</span><span class="na">click:left</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">fragment:button</span> <span class="na">text</span><span class="o">=</span><span class="s">&#39;Right&#39;</span> <span class="err">@</span><span class="na">click:right</span> <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
+
+</div>
 
 <p><br/>
 Also you can call it recursively.</p>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kd">let</span> <span class="nx">tree</span> <span class="o">=</span> <span class="p">[{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;OS&#39;</span><span class="p">,</span>
-        <span class="nx">children</span><span class="o">:</span> <span class="p">[{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Linux&#39;</span><span class="p">,</span>
-            <span class="nx">children</span><span class="o">:</span> <span class="p">[{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Ubuntu&#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Debian&#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;RedHat&#39;</span><span class="p">}]</span>
-        <span class="p">},</span> <span class="p">{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;MacOS X&#39;</span>
-        <span class="p">}]</span>
-    <span class="p">}];</span>
+  <span class="kd">let</span> <span class="nx">tree</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;OS&#39;</span><span class="p">,</span>
+    <span class="nx">children</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Linux&#39;</span><span class="p">,</span>
+      <span class="nx">children</span><span class="o">:</span> <span class="p">[{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Ubuntu&#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Debian&#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;RedHat&#39;</span><span class="p">}]</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;MacOS X&#39;</span>
+    <span class="p">}]</span>
+  <span class="p">}];</span>
 
-    <span class="kr">const</span> <span class="nx">click</span> <span class="o">=</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">)};</span>
+  <span class="kr">const</span> <span class="nx">click</span> <span class="o">=</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">)};</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">fragment:draw</span> <span class="na">list</span><span class="o">=</span><span class="s">{tree}</span><span class="p">&gt;</span>
 
 {#fragment:draw list}
-    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-        {#each list as it}
-        <span class="p">&lt;</span><span class="nt">li</span> <span class="err">@</span><span class="na">click</span><span class="err">|</span><span class="na">stopPropagation</span><span class="o">=</span><span class="s">{click(it.name)}</span><span class="p">&gt;</span>
-            {it.name}
-            {#if it.children}
-                <span class="p">&lt;</span><span class="nt">fragment:draw</span> <span class="na">list</span><span class="o">=</span><span class="s">{it.children}</span> <span class="p">/&gt;</span>
-            {/if}
-        <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-        {/each}
-    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    {#each list as it}
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="err">@</span><span class="na">click</span><span class="err">|</span><span class="na">stopPropagation</span><span class="o">=</span><span class="s">{click(it.name)}</span><span class="p">&gt;</span>
+      {it.name}
+      {#if it.children}
+        <span class="p">&lt;</span><span class="nt">fragment:draw</span> <span class="na">list</span><span class="o">=</span><span class="s">{it.children}</span> <span class="p">/&gt;</span>
+      {/if}
+    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    {/each}
+  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 {/fragment}
 </code></pre></div>
+
+<div class="columns2"><div>
+
+<p>Also you can pass slot to fragment,
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/jgtdUmDtkJK?version=0.6.36">example</a></p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code>{#fragment:field}
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;field&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">slot</span><span class="p">/&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+{/fragment}
+
+<span class="p">&lt;</span><span class="nt">fragment:field</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">fragment</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">fragment:field</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">fragment</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
 
 <h2 id="await">#await</h2>
 
@@ -496,11 +607,11 @@ Also you can call it recursively.</p>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
 {#await promise}
-    Loading...
+  Loading...
 {:then value}
-    Data: {value}
+  Data: {value}
 {:catch error}
-    Loading error: {error}
+  Loading error: {error}
 {/await}
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -527,8 +638,46 @@ Also you can call it recursively.</p>
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-    {@html post.content}
+  {@html post.content}
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h3 id="portal">Portal</h3>
+
+<div class="columns2"><div>
+
+<p>Portal lets you render a template outside of component, argument <code>mount</code> == 'document.body' by default.
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/EQIPLZrARiM?version=0.6.36">example</a></p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">malina:portal</span> <span class="na">mount</span><span class="o">=</span><span class="s">{document.body}</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;popup&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Popup<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Some text<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">malina:portal</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="head-body-window">head / body / window</h2>
+
+<div class="columns2"><div>
+
+<p>These special elements lets you handle head/body/window:
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/EG0Q_RI2cfo?version=0.6.36">example</a></p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">malina:head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Set title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;theme.css&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">malina:head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">malina:body</span> <span class="err">@</span><span class="na">keydown</span><span class="err">|</span><span class="na">esc:escape</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">malina:window</span> <span class="err">@</span><span class="na">scroll</span> <span class="p">/&gt;</span>
 </code></pre></div>
 
 </div>
@@ -544,13 +693,13 @@ Also you can call it recursively.</p>
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="p">...</span>
+  <span class="p">...</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 ... content ...
 
 <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-    <span class="o">...</span>
+  <span class="o">...</span>
 <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </code></pre></div>
 
@@ -563,7 +712,7 @@ Also you can call it recursively.</p>
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kr">import</span> <span class="nx">Component</span> <span class="nx">from</span> <span class="s1">&#39;./Component.html&#39;</span><span class="p">;</span>
+  <span class="kr">import</span> <span class="nx">Component</span> <span class="nx">from</span> <span class="s1">&#39;./Component.html&#39;</span><span class="p">;</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">Component</span> <span class="p">/&gt;</span>
@@ -595,10 +744,10 @@ Also you can call it recursively.</p>
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kr">export</span> <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">;</span>
+  <span class="kr">export</span> <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">;</span>
 
-    <span class="nx">$props</span>
-    <span class="nx">$attributes</span>
+  <span class="nx">$props</span>
+  <span class="nx">$attributes</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">input</span> <span class="err">{...$</span><span class="na">props</span><span class="err">}</span> <span class="p">/&gt;</span>
@@ -640,7 +789,7 @@ Also you can call it recursively.</p>
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;myevent&#39;</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">);</span>
+  <span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;myevent&#39;</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">);</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 
@@ -671,15 +820,15 @@ Also you can call it recursively.</p>
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Child</span><span class="p">&gt;</span>
-    {#slot:title}
-        Some title
-    {/slot}
+  {#slot:title}
+    Some title
+  {/slot}
 
-    Some content
+  Some content
 
-    {#slot:footer}
-        Some footer
-    {/slot}
+  {#slot:footer}
+    Some footer
+  {/slot}
 <span class="p">&lt;/</span><span class="nt">Child</span><span class="p">&gt;</span>
 
 <span class="c">&lt;!-- Child.html --&gt;</span>
@@ -699,16 +848,63 @@ Also you can call it recursively.</p>
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">Child</span><span class="p">&gt;</span>
-    {#slot prop}
-        Some content {prop.value} {parentVar}
-    {/slot}
+  {#slot prop}
+    Some content {prop.value} {parentVar}
+  {/slot}
 <span class="p">&lt;/</span><span class="nt">Child</span><span class="p">&gt;</span>
 
 <span class="c">&lt;!-- Child.html --&gt;</span>
 
 {#each items as item}
-    <span class="p">&lt;</span><span class="nt">slot</span> <span class="na">prop</span><span class="o">=</span><span class="s">{item}</span><span class="p">&gt;</span>No content {childVar}<span class="p">&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">slot</span> <span class="na">prop</span><span class="o">=</span><span class="s">{item}</span><span class="p">&gt;</span>No content {childVar}<span class="p">&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
 {/each}
+</code></pre></div>
+
+</div>
+
+<h2 id="call-child-fragment">Call child fragment</h2>
+
+<div class="columns2"><div>
+
+<p>You can call a fragment from child component, it looks like inverted slot,
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/e5n7BjROYSA?version=0.6.34">example</a></p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="c">&lt;!-- Child --&gt;</span>
+{#fragment:title export}
+  <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;header&quot;</span><span class="p">&gt;</span>{name}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+{/fragment}
+
+<span class="c">&lt;!-- App --&gt;</span>
+<span class="p">&lt;</span><span class="nt">Child</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">Child:title</span><span class="p">&gt;</span>Header<span class="err">&lt;</span>/&gt;
+<span class="p">&lt;/</span><span class="nt">Child</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="anchor">Anchor</h2>
+
+<div class="columns2"><div>
+
+<p>It lets you pass controls (classes, events, actions etc) without template to child component.
+<a target="_blank" href="https://malinajs.github.io/repl/#/gist/2824bcb54eab5f9b4dded54c59298944?version=0.6.36">example</a></p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="c">&lt;!-- App --&gt;</span>
+<span class="p">&lt;</span><span class="nt">Child</span><span class="p">&gt;</span>
+  <span class="err">&lt;</span>^root class=&quot;border&quot; /&gt;
+  <span class="err">&lt;</span>^name style=&quot;font-weight: bold; color: red&quot; /&gt;
+  <span class="err">&lt;</span>^input type=&quot;text&quot; *action :value /&gt;
+<span class="p">&lt;/</span><span class="nt">Child</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- Child --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="err">^</span><span class="na">root</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">span</span> <span class="err">^</span><span class="na">name</span><span class="p">&gt;</span>Name<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="err">^</span><span class="na">input</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 
 </div>
@@ -722,15 +918,15 @@ Also you can call it recursively.</p>
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kr">import</span> <span class="nx">Music</span> <span class="nx">from</span> <span class="s1">&#39;./Music.xht&#39;</span><span class="p">;</span>
-    <span class="kr">import</span> <span class="nx">Movie</span> <span class="nx">from</span> <span class="s1">&#39;./Movie.xht&#39;</span><span class="p">;</span>
+  <span class="kr">import</span> <span class="nx">Music</span> <span class="nx">from</span> <span class="s1">&#39;./Music.xht&#39;</span><span class="p">;</span>
+  <span class="kr">import</span> <span class="nx">Movie</span> <span class="nx">from</span> <span class="s1">&#39;./Movie.xht&#39;</span><span class="p">;</span>
 
-    <span class="kd">let</span> <span class="nx">comp</span><span class="p">,</span> <span class="nx">x</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">comp</span><span class="p">,</span> <span class="nx">x</span><span class="p">;</span>
 
-    <span class="kd">function</span> <span class="nx">toggle</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">comp</span> <span class="o">=</span> <span class="nx">comp</span> <span class="o">==</span> <span class="nx">Music</span> <span class="o">?</span> <span class="nx">Movie</span> <span class="o">:</span> <span class="nx">Music</span><span class="p">;</span>
-        <span class="nx">x</span> <span class="o">^=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">toggle</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">comp</span> <span class="o">=</span> <span class="nx">comp</span> <span class="o">==</span> <span class="nx">Music</span> <span class="o">?</span> <span class="nx">Movie</span> <span class="o">:</span> <span class="nx">Music</span><span class="p">;</span>
+    <span class="nx">x</span> <span class="o">^=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">component:comp</span> <span class="p">/&gt;</span>
@@ -743,7 +939,9 @@ Also you can call it recursively.</p>
 
 <h2 id="passing-css-class">Passing CSS class</h2>
 
-<p>You can pass classes into child components using property <code>class</code>, to be able to use it in child class you have to place such classes in <code>external</code> block:</p>
+<p>You can pass classes into child components using property <code>class</code>, to be able to use it in child class you have to place such classes in <code>external</code> block.
+<a target="_blank" href="https://malinajs.github.io/repl/#/gist/065441c1187bfd9ce5f0117b7dbd97f6?version=0.6.36">example</a>, 
+<a target="_blank" href="https://malinajs.github.io/repl/#/gist/410bb2c1406ea412ad4b4e75616d9581?version=0.6.36">example2</a></p>
 
 <div class="columns2"><div>
 
@@ -762,7 +960,7 @@ Also you can call it recursively.</p>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;font&quot;</span><span class="p">&gt;</span>Child<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">style</span> <span class="na">external</span><span class="p">&gt;</span>
-    <span class="p">.</span><span class="nc">font</span> <span class="p">{</span><span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;}</span>  <span class="c">/* style by default */</span>
+  <span class="p">.</span><span class="nc">font</span> <span class="p">{</span><span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;}</span>  <span class="c">/* style by default */</span>
 <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </code></pre></div>
 
@@ -787,60 +985,109 @@ Also you can call it recursively.</p>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;main&quot;</span><span class="p">&gt;</span>Child<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">style</span> <span class="na">external</span> <span class="na">main</span><span class="o">=</span><span class="s">&quot;main&quot;</span><span class="p">&gt;</span>
-    <span class="p">.</span><span class="nc">main</span> <span class="p">{</span><span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;}</span>  <span class="c">/* style by default */</span>
+  <span class="p">.</span><span class="nc">main</span> <span class="p">{</span><span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;}</span>  <span class="c">/* style by default */</span>
 <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </code></pre></div>
 
 </div>
 
-<h2 id="other">Other</h2>
-
 <div class="columns2"><div>
 
-<p>If you have an instance of component, you can read/write properties directly.</p>
+<p>If class name starts with <code>$</code> is's marked as extrenal
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/0O8PvtvEW37?version=0.6.36">example</a></p>
 
 </div>
 
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kr">import</span> <span class="nx">Component</span> <span class="nx">from</span> <span class="s1">&#39;./Component.html&#39;</span><span class="p">;</span>
-    <span class="kd">let</span> <span class="nx">comp</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="c">&lt;!-- App --&gt;</span>
+<span class="p">&lt;</span><span class="nt">Child</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;red italic&quot;</span> <span class="p">/&gt;</span>
 
-    <span class="kd">function</span> <span class="nx">increment</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">comp</span><span class="p">.</span><span class="nx">value</span><span class="o">++</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="c">&lt;!-- Child --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;$main&quot;</span><span class="p">&gt;</span>Child<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
+
+<h1 id="other">Other</h1>
+
+<h2 id="property">Property</h2>
+
+<div class="columns2"><div>
+
+<p>If you have an instance of component, you can read/write properties directly, a component should have attribute <code>property</code>.</p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="c">&lt;!-- Component --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">property</span><span class="p">&gt;</span>
+  <span class="kr">export</span> <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- App --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="kr">import</span> <span class="nx">Component</span> <span class="nx">from</span> <span class="s1">&#39;./Component.html&#39;</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">comp</span><span class="p">;</span>
+
+  <span class="kd">function</span> <span class="nx">increment</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">comp</span><span class="p">.</span><span class="nx">value</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">Component</span> <span class="err">#</span><span class="na">comp</span> <span class="p">/&gt;</span>
 </code></pre></div>
 
 </div>
 
+<h2 id="onmount-ondestroy">onMount / onDestroy</h2>
+
 <div class="columns2"><div>
 
-<p>If you need to perform some code after mounting or during destroying a component, you can use declare functions <code>onMount</code>, <code>onDestroy</code>, or use a built function <code>$onDestroy(fn)</code>.</p>
+<p>If you need to perform some code after mounting or during destroying a component, you can use declare functions <code>onMount</code>, <code>onDestroy</code>, or use a built function <code>$onMount(fn)</code>, <code>$onDestroy(fn)</code>.</p>
 
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="nx">called_at_start</span><span class="p">();</span>
 
-    <span class="nx">called_at_start</span><span class="p">();</span>
+  <span class="kd">function</span> <span class="nx">onMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// called after mounting</span>
 
-    <span class="kd">function</span> <span class="nx">onMount</span><span class="p">()</span> <span class="p">{</span>
-        <span class="c1">// called after mounting</span>
+    <span class="nx">$onDestroy</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{...});</span>  <span class="c1">// subscribe on destroying</span>
+    <span class="nx">$onDestroy</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{...});</span>
+  <span class="p">}</span>
 
-        <span class="nx">$onDestroy</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{...});</span>  <span class="c1">// subscribe on destroying</span>
-        <span class="nx">$onDestroy</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{...});</span>
-    <span class="p">}</span>
-
-    <span class="kd">function</span> <span class="nx">onDestroy</span><span class="p">()</span> <span class="p">{</span>
-        <span class="c1">// called during destroying</span>
-    <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">onDestroy</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// called during destroying</span>
+  <span class="p">}</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">Component</span> <span class="err">#</span><span class="na">comp</span> <span class="p">/&gt;</span>
 </code></pre></div>
 
 </div>
 
-<h1 id="other-2">Other</h1>
+<h2 id="turn-change-detector-off">Turn change-detector off</h2>
+
+<div class="columns2"><div>
+
+<p>In some cases you can turn off change detection, e.g. if a component doesn't expect changes, like component "Icon":</p>
+
+<ul>
+<li>If to set attribute <code>read-only</code> on script tag, change-detector will be off for this component.</li>
+<li>If you <code>export const name</code> instead <code>export let name</code>, then some runtime will be omitted for such property.</li>
+<li>Keyword <code>!no-check</code> in comment tells compiler to skips such js-block for "detections".</li>
+</ul>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">read-only</span><span class="p">&gt;</span>
+  <span class="kr">export</span> <span class="kr">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+  <span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// !no-check</span>
+    <span class="p">...</span> <span class="nx">some</span> <span class="nx">not</span> <span class="nx">detected</span> <span class="nx">code</span> <span class="p">...</span>
+  <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
+</div>
 
 <h2 id="scoped-css">Scoped CSS</h2>
 
@@ -853,18 +1100,18 @@ Also you can call it recursively.</p>
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-    <span class="nt">span</span> <span class="p">{</span>
-        <span class="c">/* all &lt;span&gt; elements, only from</span>
-<span class="c">        current component will be affected */</span>
-    <span class="p">}</span>
-    <span class="p">:</span><span class="nd">global</span><span class="o">(</span><span class="nt">body</span><span class="o">)</span> <span class="p">{</span>
-        <span class="c">/* effects on &lt;body&gt; */</span>
-    <span class="p">}</span>
-    <span class="nt">div</span> <span class="p">:</span><span class="nd">global</span><span class="o">(</span><span class="nt">span</span><span class="o">)</span> <span class="p">{</span>
-        <span class="c">/* effects on all &lt;span&gt; elements</span>
-<span class="c">        (including child components)</span>
-<span class="c">        inside of &lt;div&gt; from current component */</span>
-    <span class="p">}</span>
+  <span class="nt">span</span> <span class="p">{</span>
+    <span class="c">/* all &lt;span&gt; elements, only from</span>
+<span class="c">    current component will be affected */</span>
+  <span class="p">}</span>
+  <span class="p">:</span><span class="nd">global</span><span class="o">(</span><span class="nt">body</span><span class="o">)</span> <span class="p">{</span>
+    <span class="c">/* effects on &lt;body&gt; */</span>
+  <span class="p">}</span>
+  <span class="nt">div</span> <span class="p">:</span><span class="nd">global</span><span class="o">(</span><span class="nt">span</span><span class="o">)</span> <span class="p">{</span>
+    <span class="c">/* effects on all &lt;span&gt; elements</span>
+<span class="c">    (including child components)</span>
+<span class="c">    inside of &lt;div&gt; from current component */</span>
+  <span class="p">}</span>
 <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </code></pre></div>
 
@@ -877,7 +1124,7 @@ Also you can call it recursively.</p>
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span> <span class="na">global</span><span class="p">&gt;</span>
-    <span class="nt">span</span> <span class="p">{</span> <span class="c">/* ... */</span> <span class="p">}</span>
+  <span class="nt">span</span> <span class="p">{</span> <span class="c">/* ... */</span> <span class="p">}</span>
 <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </code></pre></div>
 
@@ -900,10 +1147,10 @@ It can contain a few expressions: <code>$: exp1, exp2, a+b, handler()</code>.</p
 </div>
 
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-    <span class="nx">$</span><span class="o">:</span> <span class="nx">header</span> <span class="o">=</span> <span class="nx">name</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
-    <span class="nx">$</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
-    <span class="nx">$</span><span class="o">:</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">onChangeSum</span>
+  <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  <span class="nx">$</span><span class="o">:</span> <span class="nx">header</span> <span class="o">=</span> <span class="nx">name</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+  <span class="nx">$</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+  <span class="nx">$</span><span class="o">:</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">onChangeSum</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">:value</span><span class="o">=</span><span class="s">{name}</span> <span class="p">/&gt;</span>
@@ -911,15 +1158,56 @@ It can contain a few expressions: <code>$: exp1, exp2, a+b, handler()</code>.</p
 
 </div>
 
+<h2 id="context">$context</h2>
+
+<div class="columns2"><div>
+
+<p>An arbitrary context object of a component, a content is available in child components. For external libs must be used during component initialisation.
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/ruuaxwKMddf?version=0.6.36">example</a></p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">// App.xht</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">$context</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;malinajs&#39;</span><span class="p">;</span>
+<span class="nx">$context</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;Test&#39;</span><span class="p">;</span>
+
+<span class="c1">// Child.xht</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">$context</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;malinajs&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">$context</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</code></pre></div>
+
+</div>
+
+<h2 id="error-handling">Error handling</h2>
+
+<div class="columns2"><div>
+
+<p>Errors which can't be caught by try-catch is handled by Malina.js and displayed to console, but you can override it.
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/b-V7WaMo4iC?version=0.6.36">example</a></p>
+
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">configure</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;malinajs/runtime.js&quot;</span><span class="p">;</span>
+<span class="nx">configure</span><span class="p">({</span>
+  <span class="nx">onerror</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">)}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+
 <h2 id="compile-options">Compile options</h2>
 
 <ul>
-<li>warning - <function> to receive warnings</li>
-<li>inlineTemplate - <true/false> convert new line to \n</li>
-<li>hideLabel - <true/false> hide comment tags (labels) from DOM</li>
-<li>compact - <true/false> remove spaces between DOM elements</li>
-<li>autoSubscribe - <true/false> autosubscribe imported stores</li>
-<li>cssGenId - <function> generate hash for css classes</li>
+<li>warning - (function) to receive warnings</li>
+<li>inlineTemplate - (true/false) convert new line to \n</li>
+<li>hideLabel - (true/false) hide comment tags (labels) from DOM</li>
+<li>compact - (true/false) remove spaces between DOM elements</li>
+<li>autoSubscribe - (true/false) autosubscribe imported stores</li>
+<li>cssGenId - (function) generate hash for css classes</li>
+<li>debugLabel - (true/false) adds info label nodes</li>
+<li>css - (true/false/function) controls how to handle CSS, true - adds css to JS bundle, false - into outside css file, function - intercepts css for manual handling</li>
+<li>passClass - (true/false) passing classes to child component, it's true by default.</li>
+<li>immutable - (true/false) if true it doesn't perform deep comparison of objects</li>
 </ul>
 
         </div>
