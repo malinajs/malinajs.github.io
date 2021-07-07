@@ -703,6 +703,8 @@ If you have an instance of component, you can read/write properties directly, a 
 ```
 
 
+## onMount / onDestroy
+
 ---
 If you need to perform some code after mounting or during destroying a component, you can use declare functions `onMount`, `onDestroy`, or use a built function `$onMount(fn)`, `$onDestroy(fn)`.
 
@@ -725,6 +727,27 @@ If you need to perform some code after mounting or during destroying a component
 <Component #comp />
 ```
 
+
+## Turn change-detector off
+
+---
+In some cases you can turn off change detection, e.g. if a component doesn't expect changes, like component "Icon":
+
+* If to set attribute `read-only` on script tag, change-detector will be off for this component.
+* If you `export const name` instead `export let name`, then some runtime will be omitted for such property.
+* Keyword `!no-check` in comment tells compiler to skips such js-block for "detections".
+
+
+```html
+<script read-only>
+  export const value = '';
+
+  function foo() {
+    // !no-check
+    ... some not detected code ...
+  }
+</script>
+```
 
 
 ## Scoped CSS
@@ -803,12 +826,29 @@ import { $context } from 'malinajs';
 let value = $context.value;
 ```
 
+## Error handling
+
+---
+Errors which can't be caught by try-catch is handled by Malina.js and displayed to console, but you can override it.
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/b-V7WaMo4iC?version=0.6.36">example</a>
+
+```js
+import {configure} from "malinajs/runtime.js";
+configure({
+  onerror(e) {console.error(e)}
+}
+```
+
 
 ## Compile options
 
-* warning - <function> to receive warnings
-* inlineTemplate - <true/false> convert new line to \n
-* hideLabel - <true/false> hide comment tags (labels) from DOM
-* compact - <true/false> remove spaces between DOM elements
-* autoSubscribe - <true/false> autosubscribe imported stores
-* cssGenId - <function> generate hash for css classes
+* warning - (function) to receive warnings
+* inlineTemplate - (true/false) convert new line to \n
+* hideLabel - (true/false) hide comment tags (labels) from DOM
+* compact - (true/false) remove spaces between DOM elements
+* autoSubscribe - (true/false) autosubscribe imported stores
+* cssGenId - (function) generate hash for css classes
+* debugLabel - (true/false) adds info label nodes
+* css - (true/false/function) controls how to handle CSS, true - adds css to JS bundle, false - into outside css file, function - intercepts css for manual handling
+* passClass - (true/false) passing classes to child component, it's true by default.
+* immutable - (true/false) if true it doesn't perform deep comparison of objects
