@@ -842,6 +842,23 @@ configure({
 ```
 
 
+## malina.config.js
+
+You can override config for any folder, you can save `malina.config.js` in target folder. It lets you to use different config/plugins for different folders/libs.
+
+```js
+const sassPlugin = require('../plugins/sass.js');
+
+module.exports = function(option, filename) {
+  option.passClass = false;
+  option.immutable = true;
+  option.plugins = [sassPlugin()];
+  option.autoimport = name => `import ${name} from './${name}.xht';`;
+  return option;
+}
+```
+
+
 ## Compile options
 
 * warning - (function) to receive warnings
@@ -854,3 +871,4 @@ configure({
 * css - (true/false/function) controls how to handle CSS, true - adds css to JS bundle, false - into outside css file, function - intercepts css for manual handling
 * passClass - (true/false) passing classes to child component, it's true by default.
 * immutable - (true/false) if true it doesn't perform deep comparison of objects
+* autoimport - a function to handle missed components e.g. `(name) => "import ${name} from './${name}.xht';";`

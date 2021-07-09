@@ -222,6 +222,12 @@
                     </li>
                 
                     <li class="doc-sidebar-list__toc-item">
+                      <a href="#malinaconfigjs" data-scroll="true">
+                        <span>malina.config.js</span>
+                      </a>
+                    </li>
+                
+                    <li class="doc-sidebar-list__toc-item">
                       <a href="#compile-options" data-scroll="true">
                         <span>Compile options</span>
                       </a>
@@ -1197,6 +1203,21 @@ It can contain a few expressions: <code>$: exp1, exp2, a+b, handler()</code>.</p
 
 </div>
 
+<h2 id="malinaconfigjs">malina.config.js</h2>
+
+<p>You can override config for any folder, you can save <code>malina.config.js</code> in target folder. It lets you to use different config/plugins for different folders/libs.</p>
+
+<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">sassPlugin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../plugins/sass.js&#39;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">option</span><span class="p">,</span> <span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">option</span><span class="p">.</span><span class="nx">passClass</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="nx">option</span><span class="p">.</span><span class="nx">immutable</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="nx">option</span><span class="p">.</span><span class="nx">plugins</span> <span class="o">=</span> <span class="p">[</span><span class="nx">sassPlugin</span><span class="p">()];</span>
+  <span class="nx">option</span><span class="p">.</span><span class="nx">autoimport</span> <span class="o">=</span> <span class="nx">name</span> <span class="p">=&gt;</span> <span class="sb">`import </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb"> from &#39;./</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">.xht&#39;;`</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">option</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <h2 id="compile-options">Compile options</h2>
 
 <ul>
@@ -1210,6 +1231,7 @@ It can contain a few expressions: <code>$: exp1, exp2, a+b, handler()</code>.</p
 <li>css - (true/false/function) controls how to handle CSS, true - adds css to JS bundle, false - into outside css file, function - intercepts css for manual handling</li>
 <li>passClass - (true/false) passing classes to child component, it's true by default.</li>
 <li>immutable - (true/false) if true it doesn't perform deep comparison of objects</li>
+<li>autoimport - a function to handle missed components e.g. <code>(name) =&gt; "import ${name} from './${name}.xht';";</code></li>
 </ul>
 
         </div>
