@@ -553,11 +553,11 @@ A child component can pass a property to parent slot:
 ```
 
 
-## Call child fragment
+## Call child fragment / Inverted slot
 
 ---
 You can call a fragment from child component, it looks like inverted slot,
-<a target="_blank" href="https://malinajs.github.io/repl/#/share/e5n7BjROYSA?version=0.6.34">example</a>
+<a target="_blank" href="https://malinajs.github.io/repl/#/share/TJLjJATAvKX?version=0.6.39">example</a>
 
 
 ```html
