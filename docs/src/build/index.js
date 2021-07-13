@@ -79,7 +79,7 @@ const postprocessMarkup = (html) => {
 const markdownToHTML = (md) => {
   const renderer = new marked.Renderer()
 
-  renderer.code = (code, lang) => `<pre class="my-2 lg:my-4"><code class="language-${lang}">${highlight(lang, code)}</code></pre>`
+  renderer.code = (code, lang) => `<pre><code class="language-${lang}">${highlight(lang, code)}</code></pre>`
   renderer.hr = () => ''
 
   return marked(md, { renderer })
