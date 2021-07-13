@@ -1,6 +1,7 @@
+import fs from 'fs/promises';
 import { highlight } from "./highlight.js";
-import marked from "https://cdn.skypack.dev/marked";
-import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
+import marked from "marked";
+import { JSDOM } from 'jsdom'
 
 const buildMenu = (html) => {
   const result = [];
@@ -54,54 +55,41 @@ const buildMenu = (html) => {
 };
 
 const postprocessMarkup = (html) => {
-  html = html.replace(
-    /(<p>+)([\s\S]*?[^`])<pre>/gm,
-    (str) =>
-      '<div class="columns2">' + str.replace("<pre>", "") + "</div>" + "<pre>",
-  );
 
-  const doc = new DOMParser().parseFromString(html, "text/html");
+  html = html.replace(/(<p>+)([\s\S]*?[^`])<pre/gm, str => '<div class="columns2">' + str.replace('<pre', '') + '</div>' + '<pre')
 
-  const divs = doc.querySelectorAll("div");
+  const { document } = (new JSDOM(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/></head><body>${html}</body></html>`)).window;
+
+  const divs = document.querySelectorAll("div");
 
   for (const i in divs) {
     if (divs[i]) {
-      if (
-        divs[i]?.nextElementSibling?.tagName === "PRE" &&
-        divs[i]?.nextElementSibling?.nextElementSibling?.tagName === "PRE"
-      ) {
-        continue;
+      if (divs[i]?.nextElementSibling?.tagName === "PRE" && divs[i]?.nextElementSibling?.nextElementSibling?.tagName === "PRE") continue;
+
+      if(divs[i]?.nextElementSibling && divs[i]?.nextElementSibling?.tagName === "PRE"){
+        divs[i].innerHTML = `<div>` + divs[i].innerHTML + `</div>` + divs[i]?.nextElementSibling?.outerHTML;
+        divs[i].nextElementSibling.remove()
       }
-
-      //присвоение outerHTML почему-то не работает :/
-      divs[i].innerHTML = `<div>${divs[i].innerHTML}</div>` +
-        divs[i]?.nextElementSibling?.outerHTML;
-
-      divs[i]?.nextElementSibling.remove();
     }
   }
 
-  return doc.body.outerHTML;
-};
+  return document.body.outerHTML
+}
+
+const markdownToHTML = (md) => {
+  const renderer = new marked.Renderer()
+
+  renderer.code = (code, lang) => `<pre class="my-2 lg:my-4"><code class="language-${lang}">${highlight(lang, code)}</code></pre>`
+  renderer.hr = () => ''
+
+  return marked(md, { renderer })
+}
 
 (async () => {
-  const input = await Deno.readTextFile("../index.md");
-  const template = await Deno.readTextFile("../index.tpl.html");
+  const input = await fs.readFile('../index.md', 'utf-8')
+  const template = await fs.readFile('../index.tpl.html', 'utf-8')
 
-  const renderer = new marked.Renderer();
-  renderer.code = (code, lang) =>
-    `<pre><code class="language-${lang}">${
-      highlight(lang, code)
-    }</code></pre>\n`;
-  renderer.hr = () => "";
+  const html = markdownToHTML(input);
 
-  const html = marked(input, { renderer });
-
-  await Deno.writeTextFile(
-    "../../index.html",
-    template.replace("{{menu}}", buildMenu(html)).replace(
-      "{{content}}",
-      postprocessMarkup(html),
-    ),
-  );
+  await fs.writeFile('../../index.html', template.replace("{{menu}}", buildMenu(html)).replace("{{content}}", postprocessMarkup(html)), 'utf-8')
 })();
