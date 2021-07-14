@@ -851,10 +851,3 @@ body {
 	padding: 1px 5px;
 	border-radius: 2px
 }
-
-.doc-formatting pre {
-	padding: 1em 1.25em;
-	white-space: pre-wrap;
-	color: #333;
-	background: #f6fafd
-}
