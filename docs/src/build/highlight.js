@@ -147,7 +147,7 @@ function langDefinitionMalina(Prism) {
     }
 
 	Prism.languages.malina = {
-        'comment': /<!--[\s\S]*-->/,
+        'comment': /<!--[\s\S]*?-->/,
         'script':{
             pattern:/<script[^>]*>[\s\S]*<\/script>/,
             inside:{

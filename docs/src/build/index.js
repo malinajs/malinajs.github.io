@@ -55,32 +55,29 @@ const buildMenu = (html) => {
 };
 
 const postprocessMarkup = (html) => {
-
-  html = html.replace(/(<p>+)([\s\S]*?[^`])<pre/gm, str => '<div class="columns2">' + str.replace('<pre', '') + '</div>' + '<pre')
-
   const { document } = (new JSDOM(`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/></head><body>${html}</body></html>`)).window;
-
-  const divs = document.querySelectorAll("div");
-
-  for (const i in divs) {
-    if (divs[i]) {
-      if (divs[i]?.nextElementSibling?.tagName === "PRE" && divs[i]?.nextElementSibling?.nextElementSibling?.tagName === "PRE") continue;
-
-      if(divs[i]?.nextElementSibling && divs[i]?.nextElementSibling?.tagName === "PRE"){
-        divs[i].innerHTML = `<div>` + divs[i].innerHTML + `</div>` + divs[i]?.nextElementSibling?.outerHTML;
-        divs[i].nextElementSibling.remove()
-      }
+  document.querySelectorAll('.columns2').forEach(tag => {
+    let div = document.createElement('div');
+    let div2 = document.createElement('div');
+    tag.appendChild(div);
+    tag.appendChild(div2);
+    while(true) {
+      let next = tag.nextElementSibling;
+      if(next.nodeName == 'PRE') {
+        div2.appendChild(next);
+        break;
+      } else div.appendChild(next);
     }
-  }
-
-  return document.body.outerHTML
+  });
+  return document.body.outerHTML;
 }
 
 const markdownToHTML = (md) => {
   const renderer = new marked.Renderer()
 
   renderer.code = (code, lang) => `<pre><code class="language-${lang}">${highlight(lang, code)}</code></pre>`
-  renderer.hr = () => ''
+
+  md = md.replace(/\n---\n/g, '\n<div class="columns2"></div>\n\n');
 
   return marked(md, { renderer })
 }

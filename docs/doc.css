@@ -31,8 +31,7 @@ a.external::after {
 	margin: 0 3px 0 5px;
 }
 
-div>code,
-p>code {
+div>code, p>code, li>code {
 	background-color: #f4f4f4;
 	white-space: nowrap
 }
