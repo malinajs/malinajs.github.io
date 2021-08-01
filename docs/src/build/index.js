@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import { highlight } from "./highlight.js";
 import marked from "marked";
 import { JSDOM } from 'jsdom'
+import csso from 'csso';
 
 const buildMenu = (html) => {
   const result = [];
@@ -89,4 +90,7 @@ const markdownToHTML = (md) => {
   const html = markdownToHTML(input);
 
   await fs.writeFile('../../index.html', template.replace("{{menu}}", buildMenu(html)).replace("{{content}}", postprocessMarkup(html)), 'utf-8')
+
+  await fs.writeFile('../../doc.css', csso.minify(await fs.readFile('../css/doc.css')).css)
+  await fs.writeFile('../../pygments.css', csso.minify(await fs.readFile('../css/pygments.css')).css)
 })();
