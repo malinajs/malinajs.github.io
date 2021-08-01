@@ -10,11 +10,18 @@ body {
 	margin: 0
 }
 
+div > code, p > code, li > code {
+	background-color: #f4f4f4;
+	white-space: nowrap
+}
 
 @media screen and (max-width:799px) {
 	.columns2 {
-		display: grid;
-		grid-template-columns: auto;
+		display: block;
+	}
+
+	div > code, p > code, li > code{
+		white-space: normal; /* nowrap добавляет прокрутку по x на телефоне  */
 	}
 }
 
@@ -29,11 +36,6 @@ body {
 a.external::after {
 	content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
 	margin: 0 3px 0 5px;
-}
-
-div>code, p>code, li>code {
-	background-color: #f4f4f4;
-	white-space: nowrap
 }
 
 details,
@@ -725,17 +727,6 @@ body {
 	font-weight: 500
 }
 
-.doc-sidebar-list__item a {
-	color: inherit;
-	display: inline-box
-}
-
-.doc-sidebar-list__item a span {
-	display: inline-block;
-	line-height: 20px;
-	margin: 5px 0
-}
-
 .doc-sidebar-list>li.doc-sidebar-list__item--current::before {
 	border-left: 3px solid #fe7030;
 	content: " ";
@@ -849,4 +840,92 @@ body {
 	font-size: 90%;
 	padding: 1px 5px;
 	border-radius: 2px
+}
+
+@media (prefers-color-scheme: dark){
+	body {
+		background: rgb(28,30,38); 
+		color: #eee;
+	}
+
+	.dc-card{
+		background: rgb(42,45,56);
+	}
+
+	h1,h2,h3,h4{
+		color: #ececec;
+		border-bottom-color: rgb(55,59,75);
+	}
+
+	.doc-formatting p code, div>code, p>code, li>code {
+		background: rgb(55,59,75)
+	}
+
+	.doc-navbar, .doc-sidebar {
+		background: rgb(42,45,56);
+		border-bottom-color: rgb(55,59,75);
+	}
+
+	.dc-list__item {
+		border-top-color: rgb(55,59,75);
+		border-bottom-color: rgb(55,59,75);
+	}
+
+	.doc-sidebar-list__item {
+		color: #ccc
+	}
+	
+	.doc-sidebar-list__item--link + .doc-sidebar-list__item--link {
+		border-top: 1px solid rgb(55,59,75)
+	}
+	
+	.doc-sidebar-list__item--link:hover {
+		color: #FFD5C2
+	}
+	
+	.doc-sidebar-list__item--current {
+		color: #FFD5C2;
+	}
+
+	.doc-sidebar-list>li.doc-sidebar-list__item--current::before {
+		border-left-color: #FFD5C2;
+	}
+	
+	.doc-sidebar-list__toc-item {
+		color: #ececec;
+		border-top-color: rgb(55,59,75)
+	}
+	
+	.doc-sidebar-list__toc-item--current {
+		color: #FFD5C2
+	}
+
+	a.external::after {
+		content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAAXNSR0IArs4c6QAAADtJREFUeNqFyMkJADAIRFHbTns5WE16MMwCA7mEj6ivptIZlkO8m6g3hDGGIMYQMvYyBcXc+IXqj29TF00JiKloOusgAAAAAElFTkSuQmCC);
+	}
+
+	.doc-navbar__logo__text {
+		color: #FFD5C2
+	}
+
+	a {
+		color: #5AC0FF;
+	}
+	
+	a:active,
+	a:hover {
+		color: #3AB4FF;
+	}
+
+}
+
+.doc-sidebar-list__item a {
+	color: inherit;
+	display: inline-box
+}
+
+.doc-sidebar-list__item a span {
+	display: inline-block;
+	line-height: 20px;
+	margin: 5px 0
 }

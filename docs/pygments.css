@@ -6,6 +6,7 @@
     --hl-string: #76a562; 
     --hl-name: #c36031; 
     --hl-attr: #a18851; 
+    --pre-border-color: #f3f3f3;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -17,6 +18,7 @@
         --hl-string: #98c379; 
         --hl-name: #56b6c2; 
         --hl-attr: #e06c75; 
+        --pre-border-color: rgb(55,59,75);
     } 
 }
 
@@ -24,7 +26,7 @@ pre{
     width: 100%;
     padding: .8rem;
     margin: 0 auto 1rem auto;
-    border: 1px solid #f3f3f3;
+    border: 1px solid var(--pre-border-color);
 }
 
 pre, .language-html, .language-js {
