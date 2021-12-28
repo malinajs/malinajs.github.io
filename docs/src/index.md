@@ -665,7 +665,7 @@ Default class name for child component is `main`, and you can define it.
 ```
 
 ---
-If class name starts with `$` is's marked as extrenal
+If class name starts with `$` it's marked as external
 <a target="_blank" href="https://malinajs.github.io/repl/#/share/0O8PvtvEW37?version=0.6.36">example</a>
 
 ```html
@@ -844,7 +844,7 @@ configure({
 
 ## malina.config.js
 
-You can override config for any folder, you can save `malina.config.js` in target folder. It lets you to use different config/plugins for different folders/libs.
+You can override config for any folder, you can save `malina.config.js` in target folder. It lets you use different config/plugins for different folders/libs.
 
 ```js
 const sassPlugin = require('../plugins/sass.js');
