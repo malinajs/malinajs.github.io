@@ -269,8 +269,8 @@
 
 <div class="columns2"><div><p>Also you can <em>spread</em> an object to attributes.</p></div><div><pre><code class="language-html"><span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
   <span class="token keyword">let</span> props <span class="token operator">=</span> <span class="token punctuation">{</span>
-    value<span class="token operator">:</span> <span class="token string">'Hello'</span><span class="token punctuation">,</span>
-    title<span class="token operator">:</span> <span class="token string">'Some title'</span>
+    <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">'Hello'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Some title'</span>
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </span><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span></span>
 
@@ -394,12 +394,12 @@ Also you can call it recursively.
 
 <pre><code class="language-html"><span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
   <span class="token keyword">let</span> tree <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-    name<span class="token operator">:</span> <span class="token string">'OS'</span><span class="token punctuation">,</span>
-    children<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-      name<span class="token operator">:</span> <span class="token string">'Linux'</span><span class="token punctuation">,</span>
-      children<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'Ubuntu'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'Debian'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'RedHat'</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'OS'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">children</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Linux'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">children</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Ubuntu'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Debian'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'RedHat'</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-      name<span class="token operator">:</span> <span class="token string">'MacOS X'</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'MacOS X'</span>
     <span class="token punctuation">}</span><span class="token punctuation">]</span>
   <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
@@ -625,7 +625,7 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span> <span class="token attr-name">class</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token punctuation">"</span>font<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Child<span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span>
 
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">style</span></span> <span class="token attr-name">external</span><span class="token punctuation">&gt;</span></span>
-  .font <span class="token expression"><span class="token punctuation">{</span><span class="token javascript">color<span class="token operator">:</span> blue<span class="token punctuation">;</span></span><span class="token punctuation">}</span></span>  /* style by default */
+  .font <span class="token expression"><span class="token punctuation">{</span><span class="token javascript"><span class="token literal-property property">color</span><span class="token operator">:</span> blue<span class="token punctuation">;</span></span><span class="token punctuation">}</span></span>  /* style by default */
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">style</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
@@ -642,7 +642,7 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span> <span class="token attr-name">class</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token punctuation">"</span>main<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Child<span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span>
 
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">style</span></span> <span class="token attr-name">external</span> <span class="token attr-name">main</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token punctuation">"</span>main<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-  .main <span class="token expression"><span class="token punctuation">{</span><span class="token javascript">color<span class="token operator">:</span> blue<span class="token punctuation">;</span></span><span class="token punctuation">}</span></span>  /* style by default */
+  .main <span class="token expression"><span class="token punctuation">{</span><span class="token javascript"><span class="token literal-property property">color</span><span class="token operator">:</span> blue<span class="token punctuation">;</span></span><span class="token punctuation">}</span></span>  /* style by default */
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">style</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
