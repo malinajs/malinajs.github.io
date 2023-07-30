@@ -20,7 +20,7 @@ You can bind JavaScript expression in html-template.
 ## Reference
 
 ---
-You can get reference to element/component using `#ref` and save it to a variable.
+You can get reference to element/component using `#ref` and save it to a variable. Variable is set to null on destroying.
 
 ```html
 <script>
@@ -186,6 +186,13 @@ Also you can forward events to a parent component, `@@eventName` to forward one 
 <Component @@click />
 ```
 
+
+---
+You can use manual event delegation, modifier `root`.
+
+```html
+<div @click|root={click}></div>
+```
 
 
 # Control blocks
@@ -441,14 +448,17 @@ You can pass some arguments into a component, it's a 1-way binding.
 
 Also you can spread an object to pass all values as arguments.
 
+If you need to detect changes inside of an object (deep-checking), then you can use modifier "deep" or option "deepCheckingProps".
+
 ```html
 <Component value={expression} {name} {...obj} />
+
+<Component value|deep={expression} />
 ```
 
 
-
 ---
-You can use keyword `export` to mark a variable as property, so it will receive a value from parent component and will be updated on changes.
+You can use keyword `export` to mark a variable as property, so it will receive a value from parent component and will be updated on changes. Also you can export a function, it will be available in instance for parent component <a target="_blank" href="https://malinajs.github.io/repl/#/share/rGdzUaokFp_?version=0.7.9">example</a>
 
 A parent can pass more arguments than number of props in a component, so all arguments will be available in `$props`, and all arguments which are not property are in `$attributes`.
 
@@ -706,23 +716,17 @@ If you have an instance of component, you can read/write properties directly, a 
 ## onMount / onDestroy
 
 ---
-If you need to perform some code after mounting or during destroying a component, you can use declare functions `onMount`, `onDestroy`, or use a built function `$onMount(fn)`, `$onDestroy(fn)`.
+If you need to perform some code after mounting or during destroying a component, you can use built functions `$onMount(fn)`, `$onDestroy(fn)`. You can use `$onDestroy` on different levels of code.
+
+You can delay removing DOM on destroying if you return a promise, <a target="_blank" href="https://malinajs.github.io/repl/#/share/j-JUlbA5lFu?version=0.7.9">example with component</a>, <a target="_blank" href="https://malinajs.github.io/repl/#/share/_ScgSgeWPvB?version=0.7.9">example with action</a>, <a target="_blank" href="https://malinajs.github.io/repl/#/share/2iCAGmabEet?version=0.7.9">example + async/await</a>
 
 
 ```html
 <script>
   called_at_start();
 
-  function onMount() {
-    // called after mounting
-
-    $onDestroy(() => {...});  // subscribe on destroying
-    $onDestroy(() => {...});
-  }
-
-  function onDestroy() {
-    // called during destroying
-  }
+  $onMount(() => {...});
+  $onDestroy(() => {...});
 </script>
 <Component #comp />
 ```
@@ -872,3 +876,4 @@ module.exports = function(option, filename) {
 * passClass - (true/false) passing classes to child component, it's true by default.
 * immutable - (true/false) if true it doesn't perform deep comparison of objects
 * autoimport - a function to handle missed components e.g. `(name) => "import ${name} from './${name}.xht';";`
+* deepCheckingProps - (true/false) deep-checking of value which is passed as property to child component.
