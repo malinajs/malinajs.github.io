@@ -4,11 +4,18 @@ import marked from "marked";
 import { JSDOM } from 'jsdom'
 import csso from 'csso';
 
-const buildMenu = (html) => {
+const buildMenu = (html, fileName) => {
   const result = [];
 
   const menuTree = [];
   let m1 = [];
+
+  if (fileName == "index") {
+    menuTree.push({
+      name: 'v0.6',
+      url: 'v0.6.html'
+    });
+  }
 
   const headings = html.match(/<h([1-3]) (.*?)h\1>/gm);
 
@@ -32,15 +39,16 @@ const buildMenu = (html) => {
     }
   }
 
-  for (const a in menuTree) {
-    let n = `<li class="doc-sidebar-list__item doc-sidebar-list__item--link"><a href="#${menuTree[a].id}"><span><b>${menuTree[a].name}</b></span></a>`
-    if (menuTree[a].children) {
+  for (const m of menuTree) {
+    const url = m.id ? `#${m.id}` : m.url;
+    let n = `<li class="doc-sidebar-list__item doc-sidebar-list__item--link"><a href="${url}"><span><b>${m.name}</b></span></a>`
+    if (m.children) {
       n += '<ul class="doc-sidebar-list__toc-list">'
-      for (const b in menuTree[a]["children"]) {
+      for (const sub of m.children) {
         n += `
           <li class="doc-sidebar-list__toc-item">
-            <a href="#${menuTree[a]["children"][b].id}" data-scroll="true">
-              <span>${menuTree[a]["children"][b].name}</span>
+            <a href="#${sub.id}" data-scroll="true">
+              <span>${sub.name}</span>
             </a>
           </li>
         `
@@ -84,12 +92,23 @@ const markdownToHTML = (md) => {
 }
 
 (async () => {
-  const input = await fs.readFile('../index.md', 'utf-8')
-  const template = await fs.readFile('../index.tpl.html', 'utf-8')
 
-  const html = markdownToHTML(input);
+  const build = async (inputFile, outputFile, title, logo) => {
+    const name = inputFile.match(/\/([\w.]+)\.md/)[1];
+    const input = await fs.readFile(inputFile, 'utf-8')
+    const template = await fs.readFile('../index.tpl.html', 'utf-8')
 
-  await fs.writeFile('../../index.html', template.replace("{{menu}}", buildMenu(html)).replace("{{content}}", postprocessMarkup(html)), 'utf-8')
+    const html = markdownToHTML(input);
+
+    let result = template.replace("{{menu}}", buildMenu(html, name))
+      .replace("{{content}}", postprocessMarkup(html))
+      .replace("{{title}}", title)
+      .replace("{{logo}}", logo);
+    await fs.writeFile(outputFile, result, 'utf-8');
+  };
+
+  await build('../index.md', '../../index.html', 'Malina.js | API', 'Malina.js');
+  await build('../v0.6.md', '../../v0.6.html', 'Malina.js | API v0.6', 'Malina.js v0.6');
 
   await fs.writeFile('../../doc.css', csso.minify(await fs.readFile('../css/doc.css')).css)
   await fs.writeFile('../../pygments.css', csso.minify(await fs.readFile('../css/pygments.css')).css)
