@@ -91,7 +91,6 @@ To set class and style you can use `class:className={condition}`, `style:styleNa
     Style as prop/template
 </div>
 
-
 <style>
   .blue {};
   .red {};
@@ -131,6 +130,18 @@ If you need more control you can pass arguments and subscribe for updates and de
   }
 </script>
 <div *draw={a, b}></div>
+```
+
+---
+You can return destroy function.
+
+```html
+<script>
+  function draw(element) {
+    ...
+    return () => { ... code for destroying ... };
+  }
+</script>
 ```
 
 
@@ -200,11 +211,13 @@ You can use manual event delegation, modifier `root`.
 ## #if-else
 
 ---
-Block of template can be rendered by condition.
+Block of template can be rendered by condition. There is shortcut `{:elif cond}` for `{:else if cond}`.
 
 ```html
 {#if condition}
   One content
+{:else if anotherCondition}
+  One more
 {:else}
   Another content
 {/if}
@@ -225,6 +238,17 @@ Iterating over list, you can pass a key which lets to associate item with DOM el
 </ul>
 ```
 
+---
+You can add section `{:else}` to display block when list is empty.
+
+```html
+{#each items as item}
+  <div>{item.name}</div>
+{:else}
+  No items
+{/each}
+```
+
 
 Examples:
 
@@ -237,10 +261,6 @@ Examples:
 ```
 
 ```html
-{#each items as {id, name, key1, key2} }...{/each}
-```
-
-```html
 {#each items as item, index (item.id)}...{/each}
 ```
 
@@ -250,6 +270,14 @@ Examples:
 
 ```html
 {#each number as value}...{/each}
+```
+
+```html
+Destructuring:
+
+{#each items as {id, name, key1, key2} }...{/each}
+
+{#each items as [a, b]}...{/each}
 ```
 
 
@@ -868,7 +896,7 @@ module.exports = function(option, filename) {
 * warning - (function) to receive warnings
 * inlineTemplate - (true/false) convert new line to \n
 * hideLabel - (true/false) hide comment tags (labels) from DOM
-* compact - (true/false) remove spaces between DOM elements
+* compact - (true/false/'full') remove spaces between DOM elements, 'full' removes all spaces.
 * autoSubscribe - (true/false) autosubscribe imported stores
 * cssGenId - (function) generate hash for css classes
 * debugLabel - (true/false) adds info label nodes
@@ -877,3 +905,4 @@ module.exports = function(option, filename) {
 * immutable - (true/false) if true it doesn't perform deep comparison of objects
 * autoimport - a function to handle missed components e.g. `(name) => "import ${name} from './${name}.xht';";`
 * deepCheckingProps - (true/false) deep-checking of value which is passed as property to child component.
+* useGroupReferencing - (true/false) using compact way to refer to elements.
