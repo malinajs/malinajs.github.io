@@ -127,6 +127,18 @@
               <span>#keep</span>
             </a>
           </li>
+        
+          <li class="doc-sidebar-list__toc-item">
+            <a href="#radio-input" data-scroll="true">
+              <span>radio-input</span>
+            </a>
+          </li>
+        
+          <li class="doc-sidebar-list__toc-item">
+            <a href="#select-input" data-scroll="true">
+              <span>select-input</span>
+            </a>
+          </li>
         </ul></li><li class="doc-sidebar-list__item doc-sidebar-list__item--link"><a href="#components"><span><b>Components</b></span></a><ul class="doc-sidebar-list__toc-list">
           <li class="doc-sidebar-list__toc-item">
             <a href="#structure" data-scroll="true">
@@ -520,6 +532,19 @@ Also you can call it recursively.
 <a href="https://malinajs.github.io/repl/#/share/WKh93kjvxbg?version=0.7.10">examples 1</a>, <a href="https://malinajs.github.io/repl/#/share/YR649uJ58ed?version=0.7.10">examples 2</a>, <a href="https://malinajs.github.io/repl/#/share/27TO0qZXeyj?version=0.7.10">examples 3</a></p></div><div><pre><code class="language-html">  <span class="token expression"><span class="token punctuation">{</span><span class="token javascript">#keep key<span class="token operator">=</span></span><span class="token punctuation">{</span><span class="token javascript">key</span><span class="token punctuation">}</span></span>}
     <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span> <span class="token punctuation">/&gt;</span></span>
   <span class="token expression"><span class="token punctuation">{</span><span class="token javascript"><span class="token operator">/</span>keep</span><span class="token punctuation">}</span></span></code></pre></div></div>
+
+
+<h2 id="radio-input">radio-input</h2>
+<p>There is no special handler for radio-input, <a href="https://malinajs.github.io/repl/#/share/MEKDBCBjc0_?version=0.7.10">example</a></p>
+<h2 id="select-input">select-input</h2>
+<div class="columns2"><div><p>Binding select-input, examples:
+<a href="https://malinajs.github.io/repl/#/share/nAg5WrMXgMc?version=0.7.10">Simple usage</a>,
+<a href="https://malinajs.github.io/repl/#/share/6JJfsbd5hF6?version=0.7.10">Array of strings</a>,
+<a href="https://malinajs.github.io/repl/#/share/ZamRYppyUTw?version=0.7.10">Array of objects</a></p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">select</span></span><span class="token bind"> <span class="token keyword">:</span><span class="token attr-name">value</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#each</span><span class="token javascript"> list <span class="token keyword">as</span> it</span><span class="token punctuation">}</span></span>
+    <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">option</span></span> <span class="token attr-name">value</span><span class="token punctuation">=</span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript">it</span><span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript">it<span class="token punctuation">.</span>name</span><span class="token punctuation">}</span></span><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">option</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token expression"><span class="token punctuation">{</span><span class="token keyword">/each</span><span class="token punctuation">}</span></span>
+<span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">select</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
 <h1 id="components">Components</h1>

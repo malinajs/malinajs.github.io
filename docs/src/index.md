@@ -449,6 +449,27 @@ These special elements lets you handle head/body/window:
   {/keep}
 ```
 
+## radio-input
+
+There is no special handler for radio-input, <a href="https://malinajs.github.io/repl/#/share/MEKDBCBjc0_?version=0.7.10">example</a>
+
+
+## select-input
+
+---
+Binding select-input, examples:
+<a href="https://malinajs.github.io/repl/#/share/nAg5WrMXgMc?version=0.7.10">Simple usage</a>,
+<a href="https://malinajs.github.io/repl/#/share/6JJfsbd5hF6?version=0.7.10">Array of strings</a>,
+<a href="https://malinajs.github.io/repl/#/share/ZamRYppyUTw?version=0.7.10">Array of objects</a>
+
+```html
+<select :value>
+  {#each list as it}
+    <option value={it}>{it.name}</option>
+  {/each}
+</select>
+```
+
 
 # Components
 
