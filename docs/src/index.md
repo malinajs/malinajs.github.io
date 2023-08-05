@@ -437,6 +437,19 @@ These special elements lets you handle head/body/window:
 ```
 
 
+## #keep
+
+---
+"Keep-alive" preserves DOM elements instead of removing them and attaches them back on condition.
+<a href="https://malinajs.github.io/repl/#/share/WKh93kjvxbg?version=0.7.10">examples 1</a>, <a href="https://malinajs.github.io/repl/#/share/YR649uJ58ed?version=0.7.10">examples 2</a>, <a href="https://malinajs.github.io/repl/#/share/27TO0qZXeyj?version=0.7.10">examples 3</a>
+
+```html
+  {#keep key={key}}
+    <div />
+  {/keep}
+```
+
+
 # Components
 
 ## Structure
@@ -715,7 +728,40 @@ If class name starts with `$` it's marked as external
 ```
 
 
+## Bind a component to itself
+
+---
+You can use `<malina:self />` to bind a new instance of current component, <a href="https://malinajs.github.io/repl/#/share/wh6jdQQGT_q?version=0.7.10">example</a> how to call itself recursively.
+
+```html
+<script>
+  export const value = 5;
+</script>
+
+<div>
+  {value}
+  {#if value > 0}
+    <malina:self value={value-1} />
+  {/if}
+</div>
+```
+
+
 # Other
+
+## Mount app to DOM
+
+---
+To mount an app to DOM you can use `mount(DOMElement, applicationConstructor, options)` or more light version `mountStatic` if you don't need an ability to unmount it (like root regular application).
+
+
+```js
+import {mount} from 'malinajs';
+import App from './App.xht';
+
+mount(document.body, App);
+```
+
 
 ## Property
 

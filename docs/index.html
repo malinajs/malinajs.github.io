@@ -121,6 +121,12 @@
               <span>head / body / window</span>
             </a>
           </li>
+        
+          <li class="doc-sidebar-list__toc-item">
+            <a href="#keep" data-scroll="true">
+              <span>#keep</span>
+            </a>
+          </li>
         </ul></li><li class="doc-sidebar-list__item doc-sidebar-list__item--link"><a href="#components"><span><b>Components</b></span></a><ul class="doc-sidebar-list__toc-list">
           <li class="doc-sidebar-list__toc-item">
             <a href="#structure" data-scroll="true">
@@ -175,7 +181,19 @@
               <span>Passing CSS class</span>
             </a>
           </li>
+        
+          <li class="doc-sidebar-list__toc-item">
+            <a href="#bind-a-component-to-itself" data-scroll="true">
+              <span>Bind a component to itself</span>
+            </a>
+          </li>
         </ul></li><li class="doc-sidebar-list__item doc-sidebar-list__item--link"><a href="#other"><span><b>Other</b></span></a><ul class="doc-sidebar-list__toc-list">
+          <li class="doc-sidebar-list__toc-item">
+            <a href="#mount-app-to-dom" data-scroll="true">
+              <span>Mount app to DOM</span>
+            </a>
+          </li>
+        
           <li class="doc-sidebar-list__toc-item">
             <a href="#property" data-scroll="true">
               <span>Property</span>
@@ -497,6 +515,13 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">malina</span><span class="token selector">:window</span></span><span class="token event"> <span class="token keyword">@</span><span class="token attr-name">scroll</span></span> <span class="token punctuation">/&gt;</span></span></code></pre></div></div>
 
 
+<h2 id="keep">#keep</h2>
+<div class="columns2"><div><p>"Keep-alive" preserves DOM elements instead of removing them and attaches them back on condition.
+<a href="https://malinajs.github.io/repl/#/share/WKh93kjvxbg?version=0.7.10">examples 1</a>, <a href="https://malinajs.github.io/repl/#/share/YR649uJ58ed?version=0.7.10">examples 2</a>, <a href="https://malinajs.github.io/repl/#/share/27TO0qZXeyj?version=0.7.10">examples 3</a></p></div><div><pre><code class="language-html">  <span class="token expression"><span class="token punctuation">{</span><span class="token javascript">#keep key<span class="token operator">=</span></span><span class="token punctuation">{</span><span class="token javascript">key</span><span class="token punctuation">}</span></span>}
+    <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token expression"><span class="token punctuation">{</span><span class="token javascript"><span class="token operator">/</span>keep</span><span class="token punctuation">}</span></span></code></pre></div></div>
+
+
 <h1 id="components">Components</h1>
 <h2 id="structure">Structure</h2>
 <div class="columns2"><div><p>A component can have script block, style block and rest content becomes a template</p></div><div><pre><code class="language-html"><span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
@@ -681,7 +706,27 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span> <span class="token attr-name">class</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token punctuation">"</span>$main<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Child<span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
+<h2 id="bind-a-component-to-itself">Bind a component to itself</h2>
+<div class="columns2"><div><p>You can use <code>&lt;malina:self /&gt;</code> to bind a new instance of current component, <a href="https://malinajs.github.io/repl/#/share/wh6jdQQGT_q?version=0.7.10">example</a> how to call itself recursively.</p></div><div><pre><code class="language-html"><span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
+  <span class="token keyword">export</span> <span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+</span><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span></span>
+
+<span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token expression"><span class="token punctuation">{</span><span class="token javascript">value</span><span class="token punctuation">}</span></span>
+  <span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#if</span><span class="token javascript"> value <span class="token operator">&gt;</span> <span class="token number">0</span></span><span class="token punctuation">}</span></span>
+    <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">malina</span><span class="token selector">:self</span></span> <span class="token attr-name">value</span><span class="token punctuation">=</span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript">value<span class="token operator">-</span><span class="token number">1</span></span><span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token expression"><span class="token punctuation">{</span><span class="token keyword">/if</span><span class="token punctuation">}</span></span>
+<span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
+
+
 <h1 id="other">Other</h1>
+<h2 id="mount-app-to-dom">Mount app to DOM</h2>
+<div class="columns2"><div><p>To mount an app to DOM you can use <code>mount(DOMElement, applicationConstructor, options)</code> or more light version <code>mountStatic</code> if you don't need an ability to unmount it (like root regular application).</p></div><div><pre><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>mount<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'malinajs'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.xht'</span><span class="token punctuation">;</span>
+
+<span class="token function">mount</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span>body<span class="token punctuation">,</span> App<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div></div>
+
+
 <h2 id="property">Property</h2>
 <div class="columns2"><div><p>If you have an instance of component, you can read/write properties directly, a component should have attribute <code>property</code>.</p></div><div><pre><code class="language-html"><span class="token comment">&lt;!-- Component --&gt;</span>
 <span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span> <span class="token attr-name">property</span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
