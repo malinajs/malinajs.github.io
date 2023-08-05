@@ -269,7 +269,7 @@
     <div class="dc-page">
       <div class="dc-card">
         <div id="page-content" class="doc-formatting">
-          <body><h1 id="expression-in-text">Expression in text</h1>
+          <body><h1 id="expression-in-text">Expression in text<a href="#expression-in-text" class="header-tag">#</a></h1>
 <div class="columns2"><div><p>You can bind JavaScript expression in html-template.</p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token expression"><span class="token punctuation">{</span><span class="token javascript">name</span><span class="token punctuation">}</span></span>
   <span class="token expression"><span class="token punctuation">{</span><span class="token javascript"><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">)</span></span><span class="token punctuation">}</span></span>
@@ -279,8 +279,8 @@
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
-<h1 id="bindings">Bindings</h1>
-<h2 id="reference">Reference</h2>
+<h1 id="bindings">Bindings<a href="#bindings" class="header-tag">#</a></h1>
+<h2 id="reference">Reference<a href="#reference" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>You can get reference to element/component using <code>#ref</code> and save it to a variable. Variable is set to null on destroying.</p></div><div><pre><code class="language-html"><span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
   <span class="token keyword">let</span> ref<span class="token punctuation">;</span>
   <span class="token keyword">let</span> component<span class="token punctuation">;</span>
@@ -290,7 +290,7 @@
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token keyword">Component</span></span><span class="token ref"> <span class="token keyword">#</span><span class="token javascript">component</span></span> <span class="token punctuation">/&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="1-way-binding">1-way binding</h2>
+<h2 id="1-way-binding">1-way binding<a href="#1-way-binding" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>For binding to attributes and properties you can write <code>attribute={value}</code>, if attribute and variable names the same you can use shortcut <code>{attribute}</code>, for binding you can use JavaScript expression.</p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">input</span></span> <span class="token attr-name">value</span><span class="token attr-value">=<span class="token punctuation">"</span></span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript">value</span><span class="token punctuation">}</span></span><span class="token attr-value"><span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">input</span></span> <span class="token attr-name">value</span><span class="token punctuation">=</span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript">value</span><span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span>
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">input</span></span> <span class="token expression"><span class="token punctuation">{</span><span class="token javascript">value</span><span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span>
@@ -307,7 +307,7 @@
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">input</span></span> <span class="token expression"><span class="token punctuation">{</span><span class="token javascript"><span class="token operator">...</span>props</span><span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="2-way-binding">2-way binding</h2>
+<h2 id="2-way-binding">2-way binding<a href="#2-way-binding" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>For 2-way binding you can use <code>bind:value={value}</code> or shortcut <code>:value={value}</code>, when property name the same as variable name you can omit it, e.g. <code>:value</code></p></div><div><pre><code class="language-html"><span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
   <span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
   <span class="token keyword">let</span> checked <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
@@ -316,7 +316,7 @@
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">input</span></span> <span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span><span class="token bind"> <span class="token keyword">:</span><span class="token attr-name">checked</span></span> <span class="token punctuation">/&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="class-and-style">Class and Style</h2>
+<h2 id="class-and-style">Class and Style<a href="#class-and-style" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>To set class and style you can use <code>class:className={condition}</code>, <code>style:styleName={value}</code>.</p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span><span class="token style"> <span class="token keyword">class:</span><span class="token attr-name">blue</span><span class="token punctuation">=</span></span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript">value</span><span class="token punctuation">}</span></span><span class="token style"> <span class="token keyword">class:</span><span class="token attr-name">red</span><span class="token punctuation">=</span></span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript"><span class="token operator">!</span>value</span><span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span>by class name<span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span>
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span> <span class="token attr-name">class</span><span class="token attr-value">=<span class="token punctuation">"</span></span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript">value<span class="token operator">?</span><span class="token string">'red'</span><span class="token operator">:</span><span class="token string">'blue'</span></span><span class="token punctuation">}</span></span><span class="token attr-value"><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>attribute class<span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span>
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">b</span></span> <span class="token attr-name">style</span><span class="token attr-value">="color: </span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript">value<span class="token operator">?</span><span class="token string">'green'</span><span class="token operator">:</span><span class="token string">'red'</span></span><span class="token punctuation">}</span></span><span class="token attr-value">;<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>style as string<span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">b</span></span><span class="token punctuation">&gt;</span></span>
@@ -332,7 +332,7 @@
 </span><span class="token styletag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">style</span></span><span class="token punctuation">&gt;</span></span></span></span></code></pre></div></div>
 
 
-<h2 id="actions">Actions</h2>
+<h2 id="actions">Actions<a href="#actions" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>You can run some JavaScript code on element, <code>use:action={param}</code> or shortcut <code>*action={param}</code>, without arguments it looks like <code>*action</code>.</p><p>Also you can run some JavaScript code where <code>$element</code> is available - <code>*{$element.focus()}</code>.</p></div><div><pre><code class="language-html"><span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
   <span class="token keyword">function</span> <span class="token function">draw</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token operator">...</span>
@@ -363,7 +363,7 @@
 </span><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span></span></code></pre></div></div>
 
 
-<h2 id="insert-js">Insert JS</h2>
+<h2 id="insert-js">Insert JS<a href="#insert-js" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>You can insert casual JS in template, a current DOM-node is available as <code>$element</code>.
 <a href="https://malinajs.github.io/repl/#/gist/d6f930f4b47e7fed5335be83d692a423?version=0.6.36" target="_blank">example</a></p></div><div><pre><code class="language-html"><span class="token expression"><span class="token punctuation">{</span><span class="token javascript"><span class="token operator">*</span> <span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">'random code'</span> </span><span class="token punctuation">}</span></span>
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span> <span class="token expression"><span class="token punctuation">{</span><span class="token javascript"><span class="token operator">*</span> </span><span class="token keyword">$element</span><span class="token javascript"><span class="token punctuation">.</span>style<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">'red'</span> </span><span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span>
@@ -371,7 +371,7 @@
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="events">Events</h2>
+<h2 id="events">Events<a href="#events" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>To listen events you can use <code>on:eventName={expression}</code> or shortcut <code>@eventName={expression}</code>.</p><p>For expression you can use function name <code>@click={handler}</code> or <code>@click:handler</code>, function declaration <code>@click={(e) =&gt; handler(e)}</code> or js-expression <code>@click={handler($event)}</code>.</p></div><div><pre><code class="language-html"><span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
   <span class="token keyword">const</span> <span class="token function-variable function">click</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 </span><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span></span>
@@ -396,8 +396,8 @@ meta keys: <code>ctrl</code>, <code>alt</code>, <code>shift</code>, <code>meta</
 <div class="columns2"><div><p>You can use manual event delegation, modifier <code>root</code>.</p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span><span class="token event"> <span class="token keyword">@</span><span class="token attr-name">click|<span class="token italic">root</span></span></span><span class="token punctuation">=</span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript">click</span><span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
-<h1 id="control-blocks">Control blocks</h1>
-<h2 id="if-else">#if-else</h2>
+<h1 id="control-blocks">Control blocks<a href="#control-blocks" class="header-tag">#</a></h1>
+<h2 id="if-else">#if-else<a href="#if-else" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>Block of template can be rendered by condition. There is shortcut <code>{:elif cond}</code> for <code>{:else if cond}</code>.</p></div><div><pre><code class="language-html"><span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#if</span><span class="token javascript"> condition</span><span class="token punctuation">}</span></span>
   One content
 <span class="token expression"><span class="token punctuation">{</span><span class="token keyword">:else</span><span class="token javascript"> <span class="token keyword">if</span> anotherCondition</span><span class="token punctuation">}</span></span>
@@ -407,7 +407,7 @@ meta keys: <code>ctrl</code>, <code>alt</code>, <code>shift</code>, <code>meta</
 <span class="token expression"><span class="token punctuation">{</span><span class="token keyword">/if</span><span class="token punctuation">}</span></span></code></pre></div></div>
 
 
-<h2 id="each">#each</h2>
+<h2 id="each">#each<a href="#each" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>Iterating over list, you can pass a key which lets to associate item with DOM element, by default key is chosen depends on content.
 <a target="_blank" href="https://malinajs.github.io/repl/#/share/TSK8J7eijHo?version=0.6.36">example</a> shows difference depends of used key.</p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">ul</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#each</span><span class="token javascript"> items <span class="token keyword">as</span> item</span><span class="token punctuation">}</span></span>
@@ -428,7 +428,7 @@ meta keys: <code>ctrl</code>, <code>alt</code>, <code>shift</code>, <code>meta</
 
 <span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#each</span><span class="token javascript"> items <span class="token keyword">as</span> </span><span class="token punctuation">{</span><span class="token javascript">id<span class="token punctuation">,</span> name<span class="token punctuation">,</span> key1<span class="token punctuation">,</span> key2</span><span class="token punctuation">}</span></span> }...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">/each</span><span class="token punctuation">}</span></span>
 
-<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#each</span><span class="token javascript"> items <span class="token keyword">as</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span></span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">/each</span><span class="token punctuation">}</span></span></code></pre><h2 id="fragment">#fragment</h2>
+<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#each</span><span class="token javascript"> items <span class="token keyword">as</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span></span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">/each</span><span class="token punctuation">}</span></span></code></pre><h2 id="fragment">#fragment<a href="#fragment" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>You can declare some fragment to reuse it a few times other places. Also it can be declared anywhere, e.g. inside of the <code>#each</code>, so it will have all scoped variables.
 <a target="_blank" href="https://malinajs.github.io/repl/#/share/QzoQntzlIxI?version=0.6.36">example</a></p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#fragment</span><span class="token selector">:button</span><span class="token javascript"> text</span><span class="token punctuation">}</span></span>
@@ -488,7 +488,7 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token keyword">fragment</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="await">#await</h2>
+<h2 id="await">#await<a href="#await" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>You can await a promise to display placeholder etc.</p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span>
 <span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#await</span><span class="token javascript"> promise</span><span class="token punctuation">}</span></span>
   Loading...
@@ -501,13 +501,13 @@ Also you can call it recursively.
 
 
 <p>Possible options:</p>
-<pre><code class="language-html"><span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#await</span><span class="token javascript"> expression</span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">:then</span><span class="token javascript"> name</span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">:catch</span><span class="token javascript"> name</span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">/await</span><span class="token punctuation">}</span></span></code></pre><pre><code class="language-html"><span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#await</span><span class="token javascript"> expression</span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">:then</span><span class="token javascript"> name</span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">/await</span><span class="token punctuation">}</span></span></code></pre><pre><code class="language-html"><span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#await</span><span class="token javascript"> expression then name</span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">/await</span><span class="token punctuation">}</span></span></code></pre><h2 id="html">@html</h2>
+<pre><code class="language-html"><span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#await</span><span class="token javascript"> expression</span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">:then</span><span class="token javascript"> name</span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">:catch</span><span class="token javascript"> name</span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">/await</span><span class="token punctuation">}</span></span></code></pre><pre><code class="language-html"><span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#await</span><span class="token javascript"> expression</span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">:then</span><span class="token javascript"> name</span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">/await</span><span class="token punctuation">}</span></span></code></pre><pre><code class="language-html"><span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#await</span><span class="token javascript"> expression then name</span><span class="token punctuation">}</span></span>...<span class="token expression"><span class="token punctuation">{</span><span class="token keyword">/await</span><span class="token punctuation">}</span></span></code></pre><h2 id="html">@html<a href="#html" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>To render some HTML, you can use <code>{@html expression}</code>.</p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token expression"><span class="token punctuation">{</span><span class="token keyword">@html</span><span class="token javascript"> post<span class="token punctuation">.</span>content</span><span class="token punctuation">}</span></span>
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
-<h3 id="portal">Portal</h3>
+<h3 id="portal">Portal<a href="#portal" class="header-tag">#</a></h3>
 <div class="columns2"><div><p>Portal lets you render a template outside of component, argument <code>mount</code> == 'document.body' by default.
 <a target="_blank" href="https://malinajs.github.io/repl/#/share/EQIPLZrARiM?version=0.6.36">example</a></p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">malina</span><span class="token selector">:portal</span></span> <span class="token attr-name">mount</span><span class="token punctuation">=</span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript">document<span class="token punctuation">.</span>body</span><span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span> <span class="token attr-name">class</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token punctuation">"</span>popup<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -517,7 +517,7 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">malina</span><span class="token selector">:portal</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="head--body--window">head / body / window</h2>
+<h2 id="head--body--window">head / body / window<a href="#head--body--window" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>These special elements lets you handle head/body/window:
 <a target="_blank" href="https://malinajs.github.io/repl/#/share/EG0Q_RI2cfo?version=0.6.36">example</a></p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">malina</span><span class="token selector">:head</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">title</span></span><span class="token punctuation">&gt;</span></span>Set title<span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">title</span></span><span class="token punctuation">&gt;</span></span>
@@ -527,16 +527,16 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">malina</span><span class="token selector">:window</span></span><span class="token event"> <span class="token keyword">@</span><span class="token attr-name">scroll</span></span> <span class="token punctuation">/&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="keep">#keep</h2>
+<h2 id="keep">#keep<a href="#keep" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>"Keep-alive" preserves DOM elements instead of removing them and attaches them back on condition.
 <a href="https://malinajs.github.io/repl/#/share/WKh93kjvxbg?version=0.7.10">examples 1</a>, <a href="https://malinajs.github.io/repl/#/share/YR649uJ58ed?version=0.7.10">examples 2</a>, <a href="https://malinajs.github.io/repl/#/share/27TO0qZXeyj?version=0.7.10">examples 3</a></p></div><div><pre><code class="language-html">  <span class="token expression"><span class="token punctuation">{</span><span class="token javascript">#keep key<span class="token operator">=</span></span><span class="token punctuation">{</span><span class="token javascript">key</span><span class="token punctuation">}</span></span>}
     <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span> <span class="token punctuation">/&gt;</span></span>
   <span class="token expression"><span class="token punctuation">{</span><span class="token javascript"><span class="token operator">/</span>keep</span><span class="token punctuation">}</span></span></code></pre></div></div>
 
 
-<h2 id="radio-input">radio-input</h2>
+<h2 id="radio-input">radio-input<a href="#radio-input" class="header-tag">#</a></h2>
 <p>There is no special handler for radio-input, <a href="https://malinajs.github.io/repl/#/share/MEKDBCBjc0_?version=0.7.10">example</a></p>
-<h2 id="select-input">select-input</h2>
+<h2 id="select-input">select-input<a href="#select-input" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>Binding select-input, examples:
 <a href="https://malinajs.github.io/repl/#/share/nAg5WrMXgMc?version=0.7.10">Simple usage</a>,
 <a href="https://malinajs.github.io/repl/#/share/6JJfsbd5hF6?version=0.7.10">Array of strings</a>,
@@ -547,8 +547,8 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">select</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
-<h1 id="components">Components</h1>
-<h2 id="structure">Structure</h2>
+<h1 id="components">Components<a href="#components" class="header-tag">#</a></h1>
+<h2 id="structure">Structure<a href="#structure" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>A component can have script block, style block and rest content becomes a template</p></div><div><pre><code class="language-html"><span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
   <span class="token operator">...</span>
 </span><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span></span>
@@ -567,7 +567,7 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token keyword">Component</span></span> <span class="token punctuation">/&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="properties-and-attributes">Properties and attributes</h2>
+<h2 id="properties-and-attributes">Properties and attributes<a href="#properties-and-attributes" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>You can pass some arguments into a component, it's a 1-way binding.</p><p>Also you can spread an object to pass all values as arguments.</p><p>If you need to detect changes inside of an object (deep-checking), then you can use modifier "deep" or option "deepCheckingProps".</p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token keyword">Component</span></span> <span class="token attr-name">value</span><span class="token punctuation">=</span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript">expression</span><span class="token punctuation">}</span></span> <span class="token expression"><span class="token punctuation">{</span><span class="token javascript">name</span><span class="token punctuation">}</span></span> <span class="token expression"><span class="token punctuation">{</span><span class="token javascript"><span class="token operator">...</span>obj</span><span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span>
 
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token keyword">Component</span></span> <span class="token attr-name">value</span>|deep<span class="token punctuation">=</span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript">expression</span><span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span></code></pre></div></div>
@@ -587,11 +587,11 @@ Also you can call it recursively.
 
 
 
-<h2 id="2-way-binding-1">2-way binding</h2>
+<h2 id="2-way-binding-1">2-way binding<a href="#2-way-binding-1" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>Syntax for 2-way binding is the same as for elements.</p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token keyword">Component</span></span><span class="token bind"> <span class="token keyword">:</span><span class="token attr-name">value=</span></span><span class="token expression"><span class="token punctuation">{</span><span class="token javascript">variable</span><span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="events-1">Events</h2>
+<h2 id="events-1">Events<a href="#events-1" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>It's possible to listen an event, forward an event and forward all events. Syntax for events is the same as for elements.</p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token keyword">Component</span></span><span class="token event"> <span class="token keyword">@</span><span class="token attr-name">click</span><span class="token javascript">:handler</span></span> <span class="token punctuation">/&gt;</span></span></code></pre></div></div>
 
 
@@ -600,7 +600,7 @@ Also you can call it recursively.
 </span><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span></span></code></pre></div></div>
 
 
-<h2 id="slots">Slots</h2>
+<h2 id="slots">Slots<a href="#slots" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>You can pass slots to a child component. To pass a default slot:</p></div><div><pre><code class="language-html"><span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token keyword">Child</span></span><span class="token punctuation">&gt;</span></span>
   Some content
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token keyword">Child</span></span><span class="token punctuation">&gt;</span></span>
@@ -642,7 +642,7 @@ Also you can call it recursively.
 <span class="token expression"><span class="token punctuation">{</span><span class="token keyword">/each</span><span class="token punctuation">}</span></span></code></pre></div></div>
 
 
-<h2 id="call-child-fragment--inverted-slot">Call child fragment / Inverted slot</h2>
+<h2 id="call-child-fragment--inverted-slot">Call child fragment / Inverted slot<a href="#call-child-fragment--inverted-slot" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>You can call a fragment from child component, it looks like inverted slot,
 <a target="_blank" href="https://malinajs.github.io/repl/#/share/TJLjJATAvKX?version=0.6.39">example</a></p></div><div><pre><code class="language-html"><span class="token comment">&lt;!-- Child --&gt;</span>
 <span class="token expression"><span class="token punctuation">{</span><span class="token keyword">#fragment</span><span class="token selector">:title</span><span class="token javascript"> <span class="token keyword">export</span></span><span class="token punctuation">}</span></span>
@@ -655,7 +655,7 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token keyword">Child</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="anchor">Anchor</h2>
+<h2 id="anchor">Anchor<a href="#anchor" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>It lets you pass controls (classes, events, actions etc) without template to child component.
 <a target="_blank" href="https://malinajs.github.io/repl/#/gist/2824bcb54eab5f9b4dded54c59298944?version=0.6.36">example</a></p></div><div><pre><code class="language-html"><span class="token comment">&lt;!-- App --&gt;</span>
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token keyword">Child</span></span><span class="token punctuation">&gt;</span></span>
@@ -671,7 +671,7 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="dynamic-component">Dynamic component</h2>
+<h2 id="dynamic-component">Dynamic component<a href="#dynamic-component" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>Dynamic component let you to attach a component from variable/expression.</p></div><div><pre><code class="language-html"><span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
   <span class="token keyword">import</span> Music <span class="token keyword">from</span> <span class="token string">'./Music.xht'</span><span class="token punctuation">;</span>
   <span class="token keyword">import</span> Movie <span class="token keyword">from</span> <span class="token string">'./Movie.xht'</span><span class="token punctuation">;</span>
@@ -690,7 +690,7 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">button</span></span><span class="token event"> <span class="token keyword">@</span><span class="token attr-name">click</span><span class="token javascript">:toggle</span></span><span class="token punctuation">&gt;</span></span>Switch<span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">button</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="passing-css-class">Passing CSS class</h2>
+<h2 id="passing-css-class">Passing CSS class<a href="#passing-css-class" class="header-tag">#</a></h2>
 <p>You can pass classes into child components using property <code>class</code>, to be able to use it in child class you have to place such classes in <code>external</code> block.
 <a target="_blank" href="https://malinajs.github.io/repl/#/gist/065441c1187bfd9ce5f0117b7dbd97f6?version=0.6.36">example</a>, 
 <a target="_blank" href="https://malinajs.github.io/repl/#/gist/410bb2c1406ea412ad4b4e75616d9581?version=0.6.36">example2</a></p>
@@ -731,7 +731,7 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">div</span></span> <span class="token attr-name">class</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token punctuation">"</span>$main<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Child<span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="bind-a-component-to-itself">Bind a component to itself</h2>
+<h2 id="bind-a-component-to-itself">Bind a component to itself<a href="#bind-a-component-to-itself" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>You can use <code>&lt;malina:self /&gt;</code> to bind a new instance of current component, <a href="https://malinajs.github.io/repl/#/share/wh6jdQQGT_q?version=0.7.10">example</a> how to call itself recursively.</p></div><div><pre><code class="language-html"><span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
   <span class="token keyword">export</span> <span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
 </span><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span></span>
@@ -744,15 +744,15 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">div</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
-<h1 id="other">Other</h1>
-<h2 id="mount-app-to-dom">Mount app to DOM</h2>
+<h1 id="other">Other<a href="#other" class="header-tag">#</a></h1>
+<h2 id="mount-app-to-dom">Mount app to DOM<a href="#mount-app-to-dom" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>To mount an app to DOM you can use <code>mount(DOMElement, applicationConstructor, options)</code> or more light version <code>mountStatic</code> if you don't need an ability to unmount it (like root regular application).</p></div><div><pre><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>mount<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'malinajs'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.xht'</span><span class="token punctuation">;</span>
 
 <span class="token function">mount</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span>body<span class="token punctuation">,</span> App<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div></div>
 
 
-<h2 id="property">Property</h2>
+<h2 id="property">Property<a href="#property" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>If you have an instance of component, you can read/write properties directly, a component should have attribute <code>property</code>.</p></div><div><pre><code class="language-html"><span class="token comment">&lt;!-- Component --&gt;</span>
 <span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span> <span class="token attr-name">property</span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
   <span class="token keyword">export</span> <span class="token keyword">let</span> value <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -770,7 +770,7 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token keyword">Component</span></span><span class="token ref"> <span class="token keyword">#</span><span class="token javascript">comp</span></span> <span class="token punctuation">/&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="onmount--ondestroy">onMount / onDestroy</h2>
+<h2 id="onmount--ondestroy">onMount / onDestroy<a href="#onmount--ondestroy" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>If you need to perform some code after mounting or during destroying a component, you can use built functions <code>$onMount(fn)</code>, <code>$onDestroy(fn)</code>. You can use <code>$onDestroy</code> on different levels of code.</p><p>You can delay removing DOM on destroying if you return a promise, <a target="_blank" href="https://malinajs.github.io/repl/#/share/j-JUlbA5lFu?version=0.7.9">example with component</a>, <a target="_blank" href="https://malinajs.github.io/repl/#/share/_ScgSgeWPvB?version=0.7.9">example with action</a>, <a target="_blank" href="https://malinajs.github.io/repl/#/share/2iCAGmabEet?version=0.7.9">example + async/await</a></p></div><div><pre><code class="language-html"><span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
   <span class="token function">called_at_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -781,7 +781,7 @@ Also you can call it recursively.
 
 
 
-<h2 id="turn-change-detector-off">Turn change-detector off</h2>
+<h2 id="turn-change-detector-off">Turn change-detector off<a href="#turn-change-detector-off" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>In some cases you can turn off change detection, e.g. if a component doesn't expect changes, like component "Icon":</p><ul>
 <li>If to set attribute <code>read-only</code> on script tag, change-detector will be off for this component.</li>
 <li>If you <code>export const name</code> instead <code>export let name</code>, then some runtime will be omitted for such property.</li>
@@ -797,7 +797,7 @@ Also you can call it recursively.
 
 
 
-<h2 id="scoped-css">Scoped CSS</h2>
+<h2 id="scoped-css">Scoped CSS<a href="#scoped-css" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>Malina.js makes all styles are scoped for a component, it appends a prefix class to styles and elements from template based on selector, so only required elements are marked.</p><p>Using keyword <code>:global()</code> you make certain style as global.</p></div><div><pre><code class="language-html"><span class="token style"><span class="token styletag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">style</span></span><span class="token punctuation">&gt;</span></span></span><span class="token css">
   <span class="token selector">span</span> <span class="token punctuation">{</span>
     <span class="token comment">/* all &lt;span&gt; elements, only from
@@ -820,7 +820,7 @@ Also you can call it recursively.
 <span class="token html"><span class="token tagstart"><span class="token punctuation">&lt;/</span><span class="token tag">style</span></span><span class="token punctuation">&gt;</span></span></code></pre></div></div>
 
 
-<h2 id="watch-expression-reactivity">Watch expression, reactivity</h2>
+<h2 id="watch-expression-reactivity">Watch expression, reactivity<a href="#watch-expression-reactivity" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>Using syntax <code>$:</code> you can observe changes.</p><p>Computed value: <code>$: value = a + b</code>, <code>value</code> will be changed when an expression gives another result.</p><p>To observe changes in expression and call handler: <code>$: exp, handler()</code>.
 It can contain a few expressions: <code>$: exp1, exp2, a+b, handler()</code>.</p><p>Handler also can be link to function or statement: <code>$: exp, (newValue) =&gt; console.log(newValue);</code> or
 <code>$: exp, console.log(exp)</code> or <code>$: exp, handler</code></p></div><div><pre><code class="language-html"><span class="token script"><span class="token scriptag"><span class="token htmltag"><span class="token tagstart"><span class="token punctuation">&lt;</span><span class="token tag">script</span></span><span class="token punctuation">&gt;</span></span></span><span class="token javascript">
@@ -836,7 +836,7 @@ It can contain a few expressions: <code>$: exp1, exp2, a+b, handler()</code>.</p
 
 
 
-<h2 id="context">$context</h2>
+<h2 id="context">$context<a href="#context" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>An arbitrary context object of a component, a content is available in child components. For external libs it must be imported from "malinajs" and used during component initialisation.
 <a target="_blank" href="https://malinajs.github.io/repl/#/share/NeIq-KUQnTD?version=0.6.36">example</a></p></div><div><pre><code class="language-js"><span class="token comment">// App.xht</span>
 $context<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">'Test'</span><span class="token punctuation">;</span>
@@ -849,7 +849,7 @@ $context<span class="token punctuation">.</span>value <span class="token operato
 <span class="token keyword">let</span> value <span class="token operator">=</span> $context<span class="token punctuation">.</span>value<span class="token punctuation">;</span></code></pre></div></div>
 
 
-<h2 id="error-handling">Error handling</h2>
+<h2 id="error-handling">Error handling<a href="#error-handling" class="header-tag">#</a></h2>
 <div class="columns2"><div><p>Errors which can't be caught by try-catch is handled by Malina.js and displayed to console, but you can override it.
 <a target="_blank" href="https://malinajs.github.io/repl/#/share/b-V7WaMo4iC?version=0.6.36">example</a></p></div><div><pre><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>configure<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"malinajs/runtime.js"</span><span class="token punctuation">;</span>
 <span class="token function">configure</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
@@ -857,7 +857,7 @@ $context<span class="token punctuation">.</span>value <span class="token operato
 <span class="token punctuation">}</span></code></pre></div></div>
 
 
-<h2 id="malinaconfigjs">malina.config.js</h2>
+<h2 id="malinaconfigjs">malina.config.js<a href="#malinaconfigjs" class="header-tag">#</a></h2>
 <p>You can override config for any folder, you can save <code>malina.config.js</code> in target folder. It lets you use different config/plugins for different folders/libs.</p>
 <pre><code class="language-js"><span class="token keyword">const</span> sassPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../plugins/sass.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -867,7 +867,7 @@ module<span class="token punctuation">.</span><span class="token function-variab
   option<span class="token punctuation">.</span>plugins <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token function">sassPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   option<span class="token punctuation">.</span><span class="token function-variable function">autoimport</span> <span class="token operator">=</span> <span class="token parameter">name</span> <span class="token operator">=&gt;</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">import </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> from './</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.xht';</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> option<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre><h2 id="compile-options">Compile options</h2>
+<span class="token punctuation">}</span></code></pre><h2 id="compile-options">Compile options<a href="#compile-options" class="header-tag">#</a></h2>
 <ul>
 <li>warning - (function) to receive warnings</li>
 <li>inlineTemplate - (true/false) convert new line to \n</li>

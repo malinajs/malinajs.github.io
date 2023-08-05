@@ -929,3 +929,25 @@ body {
 	line-height: 20px;
 	margin: 5px 0
 }
+
+.header-tag {
+	display: none;
+}
+
+h2:hover > .header-tag {
+	display: inline-block;
+	color: lightgrey;
+	font-size: 0.7em;
+	margin: 0 0 0 0.2em;
+	padding: 0;
+	line-height: 1em;
+}
+
+h1:hover > .header-tag {
+	display: inline-block;
+	color: lightgrey;
+	font-size: 0.7em;
+	margin: 0 0 0 0.2em;
+	padding: 0;
+	line-height: 1em;
+}

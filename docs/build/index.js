@@ -84,7 +84,11 @@ const postprocessMarkup = (html) => {
 const markdownToHTML = (md) => {
   const renderer = new marked.Renderer()
 
-  renderer.code = (code, lang) => `<pre><code class="language-${lang}">${highlight(lang, code)}</code></pre>`
+  renderer.code = (code, lang) => `<pre><code class="language-${lang}">${highlight(lang, code)}</code></pre>`;
+  renderer.heading = (text, level, raw, slugger) => {
+    const id = slugger.slug(raw);
+    return `<h${level} id="${id}">${text}<a href="#${id}" class="header-tag">#</a></h${level}>\n`;
+  };
 
   md = md.replace(/\n---\n/g, '\n<div class="columns2"></div>\n\n');
 
