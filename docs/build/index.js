@@ -92,11 +92,12 @@ const markdownToHTML = (md) => {
 }
 
 (async () => {
+  process.chdir('..');
 
   const build = async (inputFile, outputFile, title, logo) => {
     const name = inputFile.match(/\/([\w.]+)\.md/)[1];
     const input = await fs.readFile(inputFile, 'utf-8')
-    const template = await fs.readFile('../index.tpl.html', 'utf-8')
+    const template = await fs.readFile('./src/index.tpl.html', 'utf-8')
 
     const html = markdownToHTML(input);
 
@@ -107,9 +108,9 @@ const markdownToHTML = (md) => {
     await fs.writeFile(outputFile, result, 'utf-8');
   };
 
-  await build('../index.md', '../../index.html', 'Malina.js | API', 'Malina.js');
-  await build('../v0.6.md', '../../v0.6.html', 'Malina.js | API v0.6', 'Malina.js v0.6');
+  await build('./src/index.md', './index.html', 'Malina.js | API', 'Malina.js');
+  await build('./src/v0.6.md', './v0.6.html', 'Malina.js | API v0.6', 'Malina.js v0.6');
 
-  await fs.writeFile('../../doc.css', csso.minify(await fs.readFile('../css/doc.css')).css)
-  await fs.writeFile('../../pygments.css', csso.minify(await fs.readFile('../css/pygments.css')).css)
+  await fs.writeFile('./doc.css', csso.minify(await fs.readFile('./src/css/doc.css')).css)
+  await fs.writeFile('./pygments.css', csso.minify(await fs.readFile('./src/css/pygments.css')).css)
 })();
