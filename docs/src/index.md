@@ -451,7 +451,14 @@ These special elements lets you handle head/body/window:
 
 ## radio-input
 
-There is no special handler for radio-input, <a href="https://malinajs.github.io/repl/#/share/MEKDBCBjc0_?version=0.7.10">example</a>
+---
+Binding radio-input, <a href="https://malinajs.github.io/repl/#/share/0MAnqBqRMvA?version=0.7.15">example</a>, <a href="https://malinajs.github.io/repl/#/share/MEKDBCBjc0_?version=0.7.10">old style</a>
+
+```html
+{#each list as it}
+  <input type="radio" name={value} value={it} />
+{/each}
+```
 
 
 ## select-input
